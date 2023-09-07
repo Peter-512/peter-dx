@@ -10,8 +10,6 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-CREATE EXTENSION IF NOT EXISTS "pg_net" WITH SCHEMA "extensions";
-
 CREATE EXTENSION IF NOT EXISTS "pgsodium" WITH SCHEMA "pgsodium";
 
 CREATE EXTENSION IF NOT EXISTS "pg_graphql" WITH SCHEMA "graphql";
@@ -32,13 +30,14 @@ SET default_table_access_method = "heap";
 
 CREATE TABLE IF NOT EXISTS "public"."testimonials" (
     "slug" "text" NOT NULL,
+    "received_at" "date" NOT NULL,
     "content" "text" NOT NULL,
     "name" "text" NOT NULL,
+    "image_url" "text" NOT NULL,
     "email" "text",
     "company" "text",
     "company_logo_url" "text",
-    "image_url" "text" NOT NULL,
-    "received_at" "date" NOT NULL
+    "description" "text"
 );
 
 ALTER TABLE "public"."testimonials" OWNER TO "postgres";

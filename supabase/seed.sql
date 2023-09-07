@@ -1,5 +1,8 @@
-INSERT INTO testimonials (slug, name, content, email, received_at, company, company_logo_url, image_url ) 
-VALUES ('tim-sangster', 'Tim Sangster', 'Dear Sir/Madam
+INSERT INTO testimonials (slug, name, content, email, received_at, company, company_logo_url, image_url, description, quote ) 
+VALUES (
+'tim-sangster', 
+'Tim Sangster', 
+'Dear Sir/Madam
 
 I am writing to recommend Peter Buschenreiter. He worked with us at DataCamp as a software engineer intern during the summer of 2022 and reported to me, his engineering manager.
 
@@ -14,4 +17,11 @@ Feel free to contact me at tim@sangster.be
 Thank you
 
 Tim Sangster 
-Engineering Manager', 'tim@sangster.be', '2022-09-02', 'DataCamp', 'https://play-lh.googleusercontent.com/zIO-uuTBjFigUIswv_h9S0-wVIkno_obwannvzr7NrXbh_MXL_khqV7gEqBly6KXEi4=s48-rw', 'https://github.com/timsangster.png')
+Engineering Manager', 
+'tim@sangster.be', 
+'2022-09-02', 
+'DataCamp', 
+'https://ikbdmyijzonnuyehurhr.supabase.co/storage/v1/object/public/images/datacamp-logo.webp?t=2023-09-07T16%3A28%3A28.501Z', 
+'https://github.com/timsangster.png', 
+'Associate Engineering Manager at DataCamp during my first internship in 2022', 
+'I''ve always put a premium on self reliance and Peter showed excellent grit in researching issues himself before asking for help from the team.')

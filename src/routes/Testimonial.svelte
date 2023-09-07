@@ -12,10 +12,10 @@
 	const isRight = placement === 'right';
 </script>
 
-<Card.Root class={`max-w-md ${isRight ? 'place-self-end' : ''}`}>
+<Card.Root class={`lg:max-w-md ${isRight ? 'place-self-end' : ''}`}>
 	<Card.Header>
 		<div class="flex items-center gap-4">
-			<Avatar.Root>
+			<Avatar.Root id="avatar">
 				<Avatar.Image src={imageSrc} alt={name} />
 				<Avatar.Fallback>{fallback}</Avatar.Fallback>
 			</Avatar.Root>
@@ -33,3 +33,9 @@
 		</blockquote>
 	</Card.Content>
 </Card.Root>
+
+<style>
+	[alt] {
+		view-transition-name: avatar;
+	}
+</style>

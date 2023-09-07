@@ -14,9 +14,11 @@ export interface Database {
           company: string | null
           company_logo_url: string | null
           content: string
+          description: string | null
           email: string | null
           image_url: string
           name: string
+          quote: string | null
           received_at: string
           slug: string
         }
@@ -24,9 +26,11 @@ export interface Database {
           company?: string | null
           company_logo_url?: string | null
           content: string
+          description?: string | null
           email?: string | null
           image_url: string
           name: string
+          quote?: string | null
           received_at: string
           slug: string
         }
@@ -34,9 +38,11 @@ export interface Database {
           company?: string | null
           company_logo_url?: string | null
           content?: string
+          description?: string | null
           email?: string | null
           image_url?: string
           name?: string
+          quote?: string | null
           received_at?: string
           slug?: string
         }

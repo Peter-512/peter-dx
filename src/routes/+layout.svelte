@@ -38,8 +38,8 @@
 	<main class="mx-5">
 		<slot />
 	</main>
-	<footer class="mt-16 text-center">
-		<p>
+	<footer class="mx-5 mt-16 flex flex-col items-center gap-4 text-center">
+		<p class="leading-loose">
 			built with <code
 				class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
 				>SvelteKit</code
@@ -53,5 +53,16 @@
 				>supabase</code>
 			and ❤️
 		</p>
+		<p>
+			deployed on <code
+				class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
+				>vercel</code>
+		</p>
 	</footer>
 </div>
+
+<style>
+	footer > p {
+		text-wrap: balance;
+	}
+</style>

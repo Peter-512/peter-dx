@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onNavigate } from '$app/navigation';
 	import * as image from '$lib/images/index';
 	import Testimonial from './Testimonial.svelte';
 	const images: Array<{ src: string; alt: string }> = Object.values(image);
@@ -11,6 +12,19 @@
 		},
 		[[], [], [], []]
 	);
+
+	onNavigate((navigation) => {
+		// @ts-ignore
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			// @ts-ignore
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
 <svelte:head>
@@ -43,7 +57,7 @@
 		name="Tim Sangster"
 		fallback="TS"
 		slug="tim-sangster"
-		description="Associate Engineering Manager at DataCamp during my first internship in 2022."
+		description="Associate Engineering Manager at DataCamp during my first internship in 2022"
 		imageSrc="https://github.com/timsangster.png">
 		I've always put a premium on self reliance and Peter showed excellent grit in researching
 		issues himself before asking for help from the team.
