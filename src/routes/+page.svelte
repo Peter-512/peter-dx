@@ -30,7 +30,7 @@
 					{#each images as image}
 						<div class="overflow-hidden rounded-lg">
 							<img
-								class="h-full max-w-full object-cover transition-all duration-300 ease-in-out hover:scale-110"
+								class="h-full w-full object-cover transition-all duration-300 ease-in-out hover:scale-110"
 								src={image.src}
 								alt={image.alt} />
 						</div>
