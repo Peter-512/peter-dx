@@ -24,7 +24,7 @@
 		first internships in the field, I am excited to expand on my experience.
 	</p>
 
-	<div class="my-5 grid grid-cols-2 gap-4 lg:grid-cols-4">
+	<div class="my-5 grid grid-cols-2 gap-4 md:grid-cols-4">
 		{#each imageGroups as images}
 			<div class="grid gap-4">
 				{#each images as image}

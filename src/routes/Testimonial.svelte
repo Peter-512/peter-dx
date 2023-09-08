@@ -1,9 +1,11 @@
 <script lang="ts">
 	import * as Card from '$lib/components/ui/card';
 	import * as Avatar from '$lib/components/ui/avatar';
-	import { Link1 } from 'svelte-radix';
+	import { Button } from '$lib/components/ui/button';
+	import { Link1, Reload } from 'svelte-radix';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import { format } from 'date-fns';
+	import { navigating } from '$app/stores';
 
 	const { transition } = setupViewTransition();
 
@@ -27,7 +29,7 @@
 </script>
 
 <section use:transition={'card'}>
-	<Card.Root class={`${isFull ? '' : 'lg:max-w-md'} ${isRight ? 'place-self-end' : ''}`}>
+	<Card.Root class={`${isFull ? '' : 'md:max-w-md'} ${isRight ? 'place-self-end' : ''}`}>
 		<Card.Header>
 			<div class="flex items-center gap-4">
 				<Avatar.Root>
@@ -38,8 +40,15 @@
 				{#if companyLogoUrl}
 					<img class="ms-auto" src={companyLogoUrl} alt="Company logo" />
 				{:else}
-					<a class="ms-auto place-self-start" href={`testimonials/${slug}`}
-						><Link1 size="24" /></a>
+					<a class="ms-auto place-self-start" href={`testimonials/${slug}`}>
+						<Button class="rounded-full" variant="secondary">
+							{#if $navigating}
+								<Reload class="animate-spin outline-none" size="24" />
+							{:else}
+								<Link1 class="outline-none" size="24" />
+							{/if}
+						</Button>
+					</a>
 				{/if}
 			</div>
 			<Card.Description>
