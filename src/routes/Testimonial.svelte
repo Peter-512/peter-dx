@@ -2,40 +2,57 @@
 	import * as Card from '$lib/components/ui/card';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { Link1 } from 'svelte-radix';
+	import { setupViewTransition } from 'sveltekit-view-transition';
 
-	export let name = '';
-	export let fallback = '';
-	export let description = '';
-	export let imageSrc = '';
-	export let placement: 'left' | 'right' = 'left';
-	export let slug = '';
+	const { transition } = setupViewTransition();
+
+	export let name: string;
+	export let description: string;
+	export let imageSrc: string;
+	export let slug: string;
+	export let placement: 'left' | 'right' | 'full' = 'full';
+	export let company: string = '';
+	export let email: string = '';
+	export let companyLogoUrl: string = '';
 	const isRight = placement === 'right';
+	const isFull = placement === 'full';
+
+	const fallback = name
+		.split(' ')
+		.map((name) => name[0])
+		.join('');
 </script>
 
-<Card.Root class={`lg:max-w-md ${isRight ? 'place-self-end' : ''}`}>
-	<Card.Header>
-		<div class="flex items-center gap-4">
-			<Avatar.Root id="avatar">
-				<Avatar.Image src={imageSrc} alt={name} />
-				<Avatar.Fallback>{fallback}</Avatar.Fallback>
-			</Avatar.Root>
-			<Card.Title>{name}</Card.Title>
-			<a class="ms-auto place-self-start" href={`testimonials/${slug}`}
-				><Link1 size="24" /></a>
-		</div>
-		<Card.Description>
-			{description}
-		</Card.Description>
-	</Card.Header>
-	<Card.Content>
-		<blockquote class="border-l-2 pl-6 italic">
-			<slot />
-		</blockquote>
-	</Card.Content>
-</Card.Root>
-
-<style>
-	[alt] {
-		view-transition-name: avatar;
-	}
-</style>
+<section use:transition={'card'}>
+	<Card.Root class={`${isFull ? '' : 'lg:max-w-md'} ${isRight ? 'place-self-end' : ''}`}>
+		<Card.Header>
+			<div class="flex items-center gap-4">
+				<Avatar.Root>
+					<Avatar.Image src={imageSrc} alt={name} />
+					<Avatar.Fallback>{fallback}</Avatar.Fallback>
+				</Avatar.Root>
+				<Card.Title>{name}</Card.Title>
+				{#if companyLogoUrl}
+					<img class="ms-auto" src={companyLogoUrl} alt="Company logo" />
+				{:else}
+					<a class="ms-auto place-self-start" href={`testimonials/${slug}`}
+						><Link1 size="24" /></a>
+				{/if}
+			</div>
+			<Card.Description>
+				{description}
+			</Card.Description>
+		</Card.Header>
+		<Card.Content>
+			<blockquote class="border-l-2 pl-6 italic">
+				<slot />
+			</blockquote>
+		</Card.Content>
+		{#if company && email}
+			<Card.Footer class="flex justify-between text-gray-400">
+				<a href={`mailto:${email}`}><small>{email}</small></a>
+				<small>{company}</small>
+			</Card.Footer>
+		{/if}
+	</Card.Root>
+</section>

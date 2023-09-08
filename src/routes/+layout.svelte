@@ -2,15 +2,29 @@
 	import '../app.postcss';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import { page } from '$app/stores';
+	import { onNavigate } from '$app/navigation';
 	$: isHome = $page.route.id === '/';
 	$: isSkills = $page.route.id === '/skills';
 	$: isProjects = $page.route.id === '/projects';
+
+	onNavigate((navigation) => {
+		// @ts-ignore
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			// @ts-ignore
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
 <div class="m-5 mx-auto max-w-3xl">
 	<header>
-		<nav class="mx-5 mb-16 flex h-5 items-center space-x-4">
-			<a href="/"
+		<nav class="mb-16 me-5 flex h-5 items-center">
+			<a class="px-4" href="/"
 				><small
 					class={isHome
 						? 'underline underline-offset-4 '
@@ -18,7 +32,7 @@
 					>home</small
 				></a>
 			<Separator orientation="vertical" />
-			<a href="/skills"
+			<a class="px-4" href="/skills"
 				><small
 					class={isSkills
 						? 'underline underline-offset-4'
@@ -26,7 +40,7 @@
 					>skills</small
 				></a>
 			<Separator orientation="vertical" />
-			<a href="/projects"
+			<a class="px-4" href="/projects"
 				><small
 					class={isProjects
 						? 'underline underline-offset-4'

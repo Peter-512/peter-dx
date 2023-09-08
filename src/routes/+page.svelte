@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onNavigate } from '$app/navigation';
 	import * as image from '$lib/images/index';
 	import Testimonial from './Testimonial.svelte';
 	const images: Array<{ src: string; alt: string }> = Object.values(image);
@@ -12,19 +11,6 @@
 		},
 		[[], [], [], []]
 	);
-
-	onNavigate((navigation) => {
-		// @ts-ignore
-		if (!document.startViewTransition) return;
-
-		return new Promise((resolve) => {
-			// @ts-ignore
-			document.startViewTransition(async () => {
-				resolve();
-				await navigation.complete;
-			});
-		});
-	});
 </script>
 
 <svelte:head>
@@ -54,8 +40,8 @@
 	</div>
 
 	<Testimonial
+		placement="left"
 		name="Tim Sangster"
-		fallback="TS"
 		slug="tim-sangster"
 		description="Associate Engineering Manager at DataCamp during my first internship in 2022"
 		imageSrc="https://github.com/timsangster.png">

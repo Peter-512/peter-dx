@@ -11,38 +11,38 @@ export interface Database {
     Tables: {
       testimonials: {
         Row: {
-          company: string | null
-          company_logo_url: string | null
+          company: string
+          company_logo_url: string
           content: string
-          description: string | null
-          email: string | null
+          description: string
+          email: string
           image_url: string
           name: string
-          quote: string | null
+          quote: string
           received_at: string
           slug: string
         }
         Insert: {
-          company?: string | null
-          company_logo_url?: string | null
+          company: string
+          company_logo_url: string
           content: string
-          description?: string | null
-          email?: string | null
+          description: string
+          email: string
           image_url: string
           name: string
-          quote?: string | null
+          quote: string
           received_at: string
           slug: string
         }
         Update: {
-          company?: string | null
-          company_logo_url?: string | null
+          company?: string
+          company_logo_url?: string
           content?: string
-          description?: string | null
-          email?: string | null
+          description?: string
+          email?: string
           image_url?: string
           name?: string
-          quote?: string | null
+          quote?: string
           received_at?: string
           slug?: string
         }
