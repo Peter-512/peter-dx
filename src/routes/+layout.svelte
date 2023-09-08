@@ -3,6 +3,7 @@
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import { page } from '$app/stores';
 	import { setupViewTransition } from 'sveltekit-view-transition';
+	import { DiscordLogo, GithubLogo, LinkedinLogo, TwitterLogo, VercelLogo } from 'svelte-radix';
 
 	const { transition } = setupViewTransition();
 	$: isHome = $page.route.id === '/';
@@ -11,8 +12,8 @@
 </script>
 
 <div class="m-5 mx-auto max-w-3xl">
-	<header use:transition={'header'}>
-		<nav class="mb-16 me-5 flex h-5 items-center">
+	<header class=" mb-16 flex" use:transition={'header'}>
+		<nav class="me-5 flex h-5 items-center">
 			<a class="px-4" href="/"
 				><small
 					class={isHome
@@ -37,6 +38,21 @@
 					>projects</small
 				></a>
 		</nav>
+
+		<div class="me-4 ms-auto flex place-items-center gap-2">
+			<a class="outline-none" href="https://github.com/Peter-512/peter-dx">
+				<GithubLogo size="20" />
+			</a>
+			<a class="outline-none" href="https://www.linkedin.com/in/peter-512/">
+				<LinkedinLogo size="20" />
+			</a>
+			<a class="outline-none" href="https://discord.com/channels/817744253756112947">
+				<DiscordLogo size="20" />
+			</a>
+			<a class="outline-none" href="https://twitter.com/Chrysler_512">
+				<TwitterLogo size="20" />
+			</a>
+		</div>
 	</header>
 	<main class="mx-5">
 		<slot />
@@ -45,23 +61,27 @@
 		use:transition={'footer'}
 		class="mx-5 mt-16 flex flex-col items-center gap-4 text-center">
 		<p class="leading-loose">
-			built with <code
-				class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
-				>SvelteKit</code
+			built with <span
+				class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-thin">
+				SvelteKit</span
 			>,
-			<code
-				class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
-				>shadcn/ui</code
+			<span
+				class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-thin">
+				shadcn/ui</span
 			>,
-			<code
-				class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
-				>supabase</code>
+			<span
+				class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-thin">
+				supabase
+			</span>
 			and ❤️
 		</p>
 		<p>
-			deployed on <code
-				class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
-				>vercel</code>
+			deployed on
+			<span
+				class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-thin">
+				<VercelLogo class="inline-block outline-none" />
+				vercel
+			</span>
 		</p>
 	</footer>
 </div>

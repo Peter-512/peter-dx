@@ -2,7 +2,7 @@
 	import * as Card from '$lib/components/ui/card';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { Button } from '$lib/components/ui/button';
-	import { Link1, Reload } from 'svelte-radix';
+	import { Calendar, EnvelopeClosed, Link1, Quote, Reload } from 'svelte-radix';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import { format } from 'date-fns';
 	import { navigating } from '$app/stores';
@@ -40,7 +40,7 @@
 				{#if companyLogoUrl}
 					<img class="ms-auto" src={companyLogoUrl} alt="Company logo" />
 				{:else}
-					<a class="ms-auto place-self-start" href={`testimonials/${slug}`}>
+					<a class="ms-auto place-self-start outline-none" href={`testimonials/${slug}`}>
 						<Button class="rounded-full" variant="secondary">
 							{#if $navigating}
 								<Reload class="animate-spin outline-none" size="24" />
@@ -55,15 +55,27 @@
 				{description}
 			</Card.Description>
 		</Card.Header>
+
 		<Card.Content>
 			<blockquote class="border-l-2 pl-6 italic">
+				<Quote class="relative bottom-2 inline-block outline-none" />
 				<slot />
+				<Quote class="relative bottom-2 inline-block outline-none" />
 			</blockquote>
 		</Card.Content>
+
 		{#if company && email && date}
 			<Card.Footer class="flex justify-between text-gray-400">
-				<a href={`mailto:${email}`}><small>{email}</small></a>
-				<small>{format(new Date(date), 'MMMM, do yyyy')}</small>
+				<small class="flex items-center">
+					<EnvelopeClosed class="m-2 outline-none" />
+					<a href={`mailto:${email}`}>
+						{email}
+					</a>
+				</small>
+				<small class="flex">
+					<Calendar class="me-2 place-self-center outline-none" />
+					{format(new Date(date), 'MMMM, do yyyy')}
+				</small>
 				<small>{company}</small>
 			</Card.Footer>
 		{/if}
