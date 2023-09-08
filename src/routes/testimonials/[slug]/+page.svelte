@@ -16,7 +16,8 @@
 	slug={data.slug}
 	company={data.company}
 	companyLogoUrl={data.company_logo_url}
-	email={data.email}>
+	email={data.email}
+	date={data.received_at}>
 	{data.quote}
 </Testimonial>
 

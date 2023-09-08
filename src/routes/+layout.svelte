@@ -2,27 +2,16 @@
 	import '../app.postcss';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import { page } from '$app/stores';
-	import { onNavigate } from '$app/navigation';
+	import { setupViewTransition } from 'sveltekit-view-transition';
+
+	const { transition } = setupViewTransition();
 	$: isHome = $page.route.id === '/';
 	$: isSkills = $page.route.id === '/skills';
 	$: isProjects = $page.route.id === '/projects';
-
-	onNavigate((navigation) => {
-		// @ts-ignore
-		if (!document.startViewTransition) return;
-
-		return new Promise((resolve) => {
-			// @ts-ignore
-			document.startViewTransition(async () => {
-				resolve();
-				await navigation.complete;
-			});
-		});
-	});
 </script>
 
 <div class="m-5 mx-auto max-w-3xl">
-	<header>
+	<header use:transition={'header'}>
 		<nav class="mb-16 me-5 flex h-5 items-center">
 			<a class="px-4" href="/"
 				><small
@@ -52,7 +41,9 @@
 	<main class="mx-5">
 		<slot />
 	</main>
-	<footer class="mx-5 mt-16 flex flex-col items-center gap-4 text-center">
+	<footer
+		use:transition={'footer'}
+		class="mx-5 mt-16 flex flex-col items-center gap-4 text-center">
 		<p class="leading-loose">
 			built with <code
 				class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
