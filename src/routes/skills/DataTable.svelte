@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createTable, Subscribe, Render, createRender } from 'svelte-headless-table';
+	import { createTable, Subscribe, Render } from 'svelte-headless-table';
 	import {
 		addSortBy,
 		addPagination,
@@ -84,9 +84,8 @@
 	const { hasNextPage, hasPreviousPage, pageIndex } = pluginStates.page;
 	const { filterValue } = pluginStates.filter;
 
-	const { selectedDataIds } = pluginStates.select;
-
-	const hideableCols = ['level', 'type', 'sub_type'];
+	type HideableCol = Exclude<keyof Skill, 'name' | 'id'>;
+	const hideableCols: HideableCol[] = ['level', 'type', 'sub_type'];
 </script>
 
 <div class="w-full">
@@ -152,15 +151,19 @@
 			<Table.Body {...$tableBodyAttrs}>
 				{#each $pageRows as row (row.id)}
 					<Subscribe rowAttrs={row.attrs()} let:rowAttrs>
-						<Table.Row
-							{...rowAttrs}
-							data-state={$selectedDataIds[row.id] && 'selected'}>
+						<Table.Row {...rowAttrs}>
 							{#each row.cells as cell (cell.id)}
 								<Subscribe attrs={cell.attrs()} let:attrs>
-									<Table.Cell class="[&:has([role=checkbox])]:pl-3" {...attrs}>
-										<div class="capitalize">
-											<Render of={cell.render()} />
-										</div>
+									<Table.Cell {...attrs}>
+										{#if cell.id === 'sub_type' && cell.value === null}
+											<div class="capitalize text-gray-500">
+												<Render of={cell.render()} />
+											</div>
+										{:else}
+											<div class="capitalize">
+												<Render of={cell.render()} />
+											</div>
+										{/if}
 									</Table.Cell>
 								</Subscribe>
 							{/each}
