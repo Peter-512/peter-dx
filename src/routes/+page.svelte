@@ -1,7 +1,11 @@
 <script lang="ts">
-	import * as image from '$lib/images/index';
+	import Separator from '$lib/components/ui/separator/separator.svelte';
+	import * as i from '$lib/images/index';
+	import HoverCard from './HoverCard.svelte';
 	import Testimonial from './Testimonial.svelte';
-	const images: Array<{ src: string; alt: string }> = Object.values(image);
+	import { datacampLogo } from '$lib/logos';
+
+	const images: Array<{ src: string; alt: string }> = Object.values(i);
 	// split images into 4 groups
 	const imageGroups: { src: string; alt: string }[][] = images.reduce(
 		(acc, curr, i) => {
@@ -38,6 +42,19 @@
 			</div>
 		{/each}
 	</div>
+
+	<p>
+		I spent the beginning of my career working in sales, where I learned how to communicate and
+		put myself in the shoes of my customers. In 2021, I decided to switch careers and started a
+		bachelor in Applied Computer Science at Karel de Grote University College in Antwerp. During
+		that time, I also managed to get two summer internships at <HoverCard
+			githubAccount="datacamp"
+			imageUrl={datacampLogo}
+			text="build data and AI skills">
+			DataCamp</HoverCard> as a Software Engineer.
+	</p>
+
+	<Separator decorative class="my-5" />
 
 	<Testimonial
 		placement="left"

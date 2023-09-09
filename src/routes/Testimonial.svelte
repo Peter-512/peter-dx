@@ -29,7 +29,7 @@
 </script>
 
 <section use:transition={'card'}>
-	<Card.Root class={`${isFull ? '' : 'md:max-w-md'} ${isRight ? 'place-self-end' : ''}`}>
+	<Card.Root class={`bg-black ${isFull ? '' : 'md:max-w-md'} ${isRight ? 'place-self-end' : ''}`}>
 		<Card.Header>
 			<div class="flex items-center gap-4">
 				<Avatar.Root>

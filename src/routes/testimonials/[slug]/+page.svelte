@@ -21,7 +21,8 @@
 	{data.quote}
 </Testimonial>
 
-<Separator class="my-5" />
+<Separator decorative class="my-5" />
+
 <section class="whitespace-break-spaces">
 	{data.content}
 </section>
