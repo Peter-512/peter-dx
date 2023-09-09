@@ -43,7 +43,7 @@
 		{/each}
 	</div>
 
-	<p class="leading-relaxed text-gray-400">
+	<p class="leading-relaxed text-gray-300">
 		I spent the beginning of my career working in sales, where I learned how to communicate and
 		put myself in the shoes of my customers.
 		<br />
@@ -54,6 +54,8 @@
 			imageUrl={datacampLogo}
 			text="build data and AI skills">
 			DataCamp</HoverCard> as a Software Engineer.
+		<br />
+		In my free time, I like to climb and play video games.
 	</p>
 
 	<Separator decorative class="my-5" />

@@ -24,4 +24,70 @@ Engineering Manager',
 'https://ikbdmyijzonnuyehurhr.supabase.co/storage/v1/object/public/images/datacamp-logo.webp?t=2023-09-07T16%3A28%3A28.501Z', 
 'https://github.com/timsangster.png', 
 'Associate Engineering Manager at DataCamp during my first internship in 2022', 
-'I''ve always put a premium on self reliance and Peter showed excellent grit in researching issues himself before asking for help from the team.')
+'I''ve always put a premium on self reliance and Peter showed excellent grit in researching issues himself before asking for help from the team.');
+
+
+insert into
+  skills (
+    name,
+    level,
+    type,
+    sub_type
+  )
+values
+  ('HTML5', 'advanced', 'language', null),
+  ('CSS3', 'intermediate', 'language', null),
+  ('JavaScript', 'intermediate', 'language', null),
+  ('TypeScript', 'intermediate', 'language', null),
+  ('React', 'intermediate', 'library', null),
+  ('Svelte', 'advanced', 'framework', null),
+  ('GraphQL', 'beginner', 'tool', 'database'),
+  ('Heap', 'beginner', 'tool', 'observability'),
+  ('Git', 'intermediate', 'tool', 'version control'),
+  (
+    'GitHub',
+    'intermediate',
+    'tool',
+    'version control'
+  ),
+  ('NestJS', 'beginner', 'framework', null),
+  ('Split.io', 'beginner', 'tool', 'other'),
+  ('Bull', 'beginner', 'tool', 'other'),
+  ('Java', 'advanced', 'language', null),
+  ('Spring', 'intermediate', 'framework', null),
+  ('Hibernate', 'intermediate', 'framework', null),
+  ('Python', 'intermediate', 'language', null),
+  ('C', 'beginner', 'language', null),
+  ('Bash', 'intermediate', 'language', null),
+  ('PostgreSQL', 'intermediate', 'language', null),
+  ('Cypher (Neo4j)', 'beginner', 'language', null),
+  (
+    'Microsoft SQL Server',
+    'intermediate',
+    'language',
+    null
+  ),
+  ('Vue', 'beginner', 'framework', null),
+  (
+    'Talend Open Studio',
+    'beginner',
+    'tool',
+    'database'
+  ),
+  ('Docker', 'intermediate', 'tool', 'deployment'),
+  ('Scrum', 'intermediate', 'other', null),
+  ('Figma', 'intermediate', 'tool', 'other'),
+  ('Gitlab', 'advanced', 'tool', 'version control'),
+  ('CircleCI', 'intermediate', 'tool', 'deployment'),
+  ('Sentry', 'beginner', 'tool', 'observability'),
+  (
+    'Google Cloud Platform',
+    'intermediate',
+    'tool',
+    'deployment'
+  ),
+  ('Vercel', 'intermediate', 'tool', 'deployment'),
+  ('Subabase', 'intermediate', 'tool', 'database'),
+  ('Jest', 'intermediate', 'tool', 'testing'),
+  ('Cypress', 'beginner', 'tool', 'testing'),
+  ('JUnit', 'intermediate', 'tool', 'testing');
