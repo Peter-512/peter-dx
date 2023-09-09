@@ -43,11 +43,13 @@
 		{/each}
 	</div>
 
-	<p>
+	<p class="leading-relaxed text-gray-400">
 		I spent the beginning of my career working in sales, where I learned how to communicate and
-		put myself in the shoes of my customers. In 2021, I decided to switch careers and started a
-		bachelor in Applied Computer Science at Karel de Grote University College in Antwerp. During
-		that time, I also managed to get two summer internships at <HoverCard
+		put myself in the shoes of my customers.
+		<br />
+		In 2021, I decided to switch careers and started a bachelor in Applied Computer Science at Karel
+		de Grote University College in Antwerp. During that time, I also managed to get two summer internships
+		at <HoverCard
 			githubAccount="datacamp"
 			imageUrl={datacampLogo}
 			text="build data and AI skills">
