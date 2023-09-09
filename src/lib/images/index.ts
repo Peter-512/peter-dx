@@ -1,17 +1,17 @@
 /* eslint-disable */
 
-import boulderingSrc from './bouldering.jpeg';
-import climbing1Src from './climbing-1.jpeg';
-import climbing2Src from './climbing-2.jpeg';
-import climbing3Src from './climbing-3.jpeg';
-import expo1Src from './expo-1.jpeg';
-import expo2Src from './expo-2.jpeg';
-import expo3Src from './expo-3.jpeg';
-import expo4Src from './expo-4.jpg';
-import selfieSrc from './selfie.jpeg';
-import styleSrc from './style.jpeg';
-import subwaySrc from './subway.jpeg';
-import weirdStareSrc from './weird-stare.jpeg';
+import boulderingSrc from './bouldering.webp';
+import climbing1Src from './climbing-1.webp';
+import climbing2Src from './climbing-2.webp';
+import climbing3Src from './climbing-3.webp';
+import expo1Src from './expo-1.webp';
+import expo2Src from './expo-2.webp';
+import expo3Src from './expo-3.webp';
+import expo4Src from './expo-4.webp';
+import selfieSrc from './selfie.webp';
+import styleSrc from './style.webp';
+import subwaySrc from './subway.webp';
+import weirdStareSrc from './weird-stare.webp';
 
 const bouldering = { src: boulderingSrc, alt: 'Bouldering' };
 const climbing1 = { src: climbing1Src, alt: 'Climbing' };
