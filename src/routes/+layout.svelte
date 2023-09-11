@@ -16,28 +16,28 @@
 <div class="m-5 mx-auto max-w-3xl">
 	<header class=" mb-16 flex" use:transition={'header'}>
 		<nav class="me-5 flex h-5 items-center">
-			<a class="px-4" href="/"
+			<a class="px-4" href="/" aria-current={$page.url.pathname === '/' ? 'page' : undefined}
 				><small
-					class={isHome
-						? 'underline underline-offset-4 '
-						: 'text-gray-400 transition-colors duration-300 hover:text-white'}
-					>home</small
+					class:text-gray-400={!isHome}
+					class="transition-colors duration-300 hover:text-white">home</small
 				></a>
 			<Separator decorative orientation="vertical" />
-			<a class="px-4" href="/skills"
+			<a
+				class="px-4"
+				href="/skills"
+				aria-current={$page.url.pathname === '/skills' ? 'page' : undefined}
 				><small
-					class={isSkills
-						? 'underline underline-offset-4'
-						: 'text-gray-400 transition-colors duration-300 hover:text-white'}
-					>skills</small
+					class="transition-colors duration-300 hover:text-white"
+					class:text-gray-400={!isSkills}>skills</small
 				></a>
 			<Separator decorative orientation="vertical" />
-			<a class="px-4" href="/projects"
+			<a
+				class="px-4"
+				href="/projects"
+				aria-current={$page.url.pathname === '/projects' ? 'page' : undefined}
 				><small
-					class={isProjects
-						? 'underline underline-offset-4'
-						: 'text-gray-400 transition-colors duration-300 hover:text-white'}
-					>projects</small
+					class="transition-colors duration-300 hover:text-white"
+					class:text-gray-400={!isProjects}>projects</small
 				></a>
 		</nav>
 
@@ -97,5 +97,23 @@
 <style>
 	footer > p {
 		text-wrap: balance;
+	}
+
+	nav > a {
+		position: relative;
+	}
+
+	a[aria-current='page']::after {
+		--size: 0.5px;
+		position: absolute;
+		content: '';
+		height: var(--size);
+		width: 80%;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		bottom: -4px;
+		border: var(--size) solid white;
+		view-transition-name: active-page;
 	}
 </style>
