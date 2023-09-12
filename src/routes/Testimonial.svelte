@@ -36,7 +36,17 @@
 					<Avatar.Image src={imageSrc} alt={name} />
 					<Avatar.Fallback>{fallback}</Avatar.Fallback>
 				</Avatar.Root>
-				<Card.Title>{name}</Card.Title>
+				<div>
+					<Card.Title>{name}</Card.Title>
+					{#if email}
+						<small class="flex items-center text-gray-400">
+							<EnvelopeClosed class="me-2 outline-none" />
+							<a href={`mailto:${email}`}>
+								{email}
+							</a>
+						</small>
+					{/if}
+				</div>
 				{#if companyLogoUrl}
 					<img class="ms-auto" src={companyLogoUrl} alt="Company logo" />
 				{:else}
@@ -64,14 +74,8 @@
 			</blockquote>
 		</Card.Content>
 
-		{#if company && email && date}
+		{#if company && date}
 			<Card.Footer class="flex justify-between text-gray-400">
-				<small class="flex items-center">
-					<EnvelopeClosed class="m-2 outline-none" />
-					<a href={`mailto:${email}`}>
-						{email}
-					</a>
-				</small>
 				<small class="flex">
 					<Calendar class="me-2 place-self-center outline-none" />
 					{format(new Date(date), 'MMMM, do yyyy')}
