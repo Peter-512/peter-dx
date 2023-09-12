@@ -20,9 +20,9 @@
 
 	const table = createTable(readable(data), {
 		sort: addSortBy({
-			initialSortKeys: [{ id: 'level', order: 'asc' }]
+			initialSortKeys: [{ id: 'level', order: 'desc' }]
 		}),
-		page: addPagination({ initialPageSize: 20 }),
+		page: addPagination({ initialPageSize: 15 }),
 		filter: addTableFilter({
 			fn: ({ filterValue, value }) =>
 				value.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase())
@@ -38,7 +38,16 @@
 		}),
 		table.column({
 			header: 'Level',
-			accessor: 'level'
+			accessor: 'level',
+
+			plugins: {
+				sort: {
+					compareFn: (left, right) => {
+						const order = ['beginner', 'intermediate', 'advanced'];
+						return order.indexOf(left) - order.indexOf(right);
+					}
+				}
+			}
 		}),
 		table.column({
 			header: 'Type',
