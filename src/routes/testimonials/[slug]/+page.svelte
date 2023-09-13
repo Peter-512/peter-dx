@@ -34,8 +34,8 @@
 			<Skeleton class="h-10 w-[300px]" />
 			<Skeleton class="h-10 w-[100px]" />
 		</div>
-	{:then content}
-		{content.data?.content}
+	{:then { data }}
+		{data?.content}
 	{:catch error}
 		<p class="text-red-500">{error.message}</p>
 	{/await}
