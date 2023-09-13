@@ -15,6 +15,8 @@
 		},
 		[[], [], [], []]
 	);
+	export let data;
+	const { testimonials } = data;
 </script>
 
 <svelte:head>
@@ -60,13 +62,9 @@
 
 	<Separator decorative class="my-5" />
 
-	<Testimonial
-		placement="left"
-		name="Tim Sangster"
-		slug="tim-sangster"
-		description="Associate Engineering Manager at DataCamp during my first internship in 2022"
-		imageSrc="https://github.com/timsangster.png">
-		I've always put a premium on self reliance and Peter showed excellent grit in researching
-		issues himself before asking for help from the team.
-	</Testimonial>
+	<h1 class="text-2xl">what others say about me 🤩</h1>
+
+	{#each testimonials as testimonial, index (index)}
+		<Testimonial placement={index % 2 ? 'left' : 'right'} {...testimonial} />
+	{/each}
 </div>

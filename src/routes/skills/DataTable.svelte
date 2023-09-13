@@ -16,9 +16,9 @@
 	import { Input } from '$lib/components/ui/input';
 	import type { Skill } from '$lib/types/types';
 
-	export let data: Skill[];
+	export let skills: Skill[];
 
-	const table = createTable(readable(data), {
+	const table = createTable(readable(skills), {
 		sort: addSortBy({
 			initialSortKeys: [{ id: 'level', order: 'desc' }]
 		}),
