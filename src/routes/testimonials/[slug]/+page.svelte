@@ -25,7 +25,7 @@
 
 <section class="whitespace-break-spaces">
 	{#await data.streamed.content}
-		<div class="space-y-4">
+		<div class="gap-4">
 			<Skeleton class="h-5 w-24" />
 			<Skeleton class="h-10 w-full" />
 			<Skeleton class="h-20 w-full" />
@@ -34,8 +34,8 @@
 			<Skeleton class="h-10 w-[300px]" />
 			<Skeleton class="h-10 w-[100px]" />
 		</div>
-	{:then { data }}
-		{data?.content}
+	{:then { content }}
+		{content}
 	{:catch error}
 		<p class="text-red-500">{error.message}</p>
 	{/await}
