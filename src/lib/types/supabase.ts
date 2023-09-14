@@ -36,17 +36,14 @@ export interface Database {
       }
       project_skills: {
         Row: {
-          id: number
           project_id: number
           skills_id: number
         }
         Insert: {
-          id?: number
           project_id: number
           skills_id: number
         }
         Update: {
-          id?: number
           project_id?: number
           skills_id?: number
         }
