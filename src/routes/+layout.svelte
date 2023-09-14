@@ -6,6 +6,18 @@
 	import { DiscordLogo, GithubLogo, LinkedinLogo } from 'svelte-radix';
 	import { shadcnSvelteLogo, svelteLogo, supabaseLogo, vercelLogo } from '$lib/logos';
 	import HoverCard from './HoverCard.svelte';
+	import { browser } from '$app/environment';
+	import { webVitals } from '$lib/vitals';
+
+	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
+
+	$: if (browser && analyticsId) {
+		webVitals({
+			path: $page.url.pathname,
+			params: $page.params,
+			analyticsId
+		});
+	}
 
 	const { transition } = setupViewTransition();
 	$: isHome = $page.route.id === '/';
