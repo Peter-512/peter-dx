@@ -91,3 +91,44 @@ values
   ('Jest', 'intermediate', 'tool', 'testing'),
   ('Cypress', 'beginner', 'tool', 'testing'),
   ('JUnit', 'intermediate', 'tool', 'testing');
+
+
+INSERT INTO projects (name, link, start_date, description)
+VALUES 
+  ('Qwixx', 'https://github.com/Peter-512/Qwixx', '2022-02-11', 'A two-player dice game built in Java using JavaFX including statistics about the games that were played.'),
+  ('Qwixx website', 'https://github.com/Peter-512/Qwixx-website', '2022-05-06', 'The website for the Qwixx project.'),
+  ('Arduino projects', 'https://github.com/Peter-512/Arduino-projects', '2022-04-23', 'A few Ardunio projects using an Arduino shield and only using plain C, without the help of external libraries.'),
+  ('YouthCouncil', 'https://github.com/Peter-512/youthcouncil', '2023-02-06', 'A web application built in Java Spring. It is a multi-tenant CMS for youthcouncils in Belgian municipalities to organize themselves, ideas of members and communicate events like announcements or the status of action points.'),
+  ('Connect 4', 'https://github.com/Peter-512/Connect4', '2021-11-19', 'A Connect 4 console application game built in Java. Features a leaderboard, a simple AI and a save/load system.'),
+  ('Eirene', 'https://github.com/Peter-512/Eirene', '2022-09-19', 'A web application built in Java Spring'),
+  ('Sveltetower','https://github.com/Peter-512/sveltetower-gcloud', '2023-05-16', 'A sveltekit application deployed to Google Cloud Platform using Compute Instances and linked to a cloud postgres database via a private cloud network.'),
+  ('KdGG', 'https://github.com/Peter-512/kdgg', '2022-09-25', 'A web application built in Java Spring where users can join and chat on multiple channel. Depending on their role, they can manage channels.'),
+  ('Portfolio', 'https://github.com/Peter-512/peter-dx', '2023-09-06', 'This portfolio website. Built in Sveltekit and deployed to Vercel. Uses supabase as a database and checkly for uptime monitoring and E2E tests.');
+
+INSERT INTO team_members (name)
+VALUES 
+  ('Seifeldin Sabry'),
+  ('Elina Van der Taelen'),
+  ('Filip Nowak'),
+  ('Thomas Ellmenreich'),
+  ('Brandon Vu'),
+  ('Nova Dockx'),
+  ('Nova Ayhan'),
+  ('Paul Mocanu');
+
+INSERT INTO project_team_members (project_id, team_member_id)
+VALUES
+  (1, 5),
+  (1, 6),
+  (1, 7),
+  (2, 5),
+  (2, 6),
+  (2, 7),
+  (4, 4),
+  (4, 8),
+  (5, 1),
+  (6, 1),
+  (6, 2),
+  (6, 3),
+  (7, 2),
+  (7, 3);
