@@ -67,17 +67,14 @@ export interface Database {
       }
       project_team_members: {
         Row: {
-          id: number
           project_id: number
           team_member_id: number
         }
         Insert: {
-          id?: number
-          project_id: number
-          team_member_id: number
+          project_id?: number
+          team_member_id?: number
         }
         Update: {
-          id?: number
           project_id?: number
           team_member_id?: number
         }

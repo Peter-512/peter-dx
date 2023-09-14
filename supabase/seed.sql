@@ -116,19 +116,19 @@ VALUES
   (7, 'Nova Ayhan'),
   (8, 'Paul Mocanu');
 
-INSERT INTO project_team_members (id, project_id, team_member_id)
+INSERT INTO project_team_members (project_id, team_member_id)
 VALUES
-  (1, 1, 5),
-  (2, 1, 6),
-  (3, 1, 7),
-  (4, 2, 5),
-  (5, 2, 6),
-  (6, 2, 7),
-  (7, 4, 4),
-  (8, 4, 8),
-  (9, 5, 1),
-  (10, 6, 1),
-  (11, 6, 2),
-  (12, 6, 3),
-  (13, 7, 2),
-  (14, 7, 3);
+  (1, 5),
+  (1, 6),
+  (1, 7),
+  (2, 5),
+  (2, 6),
+  (2, 7),
+  (4, 4),
+  (4, 8),
+  (5, 1),
+  (6, 1),
+  (6, 2),
+  (6, 3),
+  (7, 2),
+  (7, 3);
