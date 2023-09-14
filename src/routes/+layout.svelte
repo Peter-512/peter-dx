@@ -11,6 +11,8 @@
 
 	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 
+	console.info('analyticsId', analyticsId);
+
 	$: if (browser && analyticsId) {
 		webVitals({
 			path: $page.url.pathname,
