@@ -19,26 +19,26 @@
 			<a class="px-4" href="/" aria-current={$page.url.pathname === '/' ? 'page' : undefined}
 				><small
 					class:text-gray-400={!isHome}
-					class="transition-colors duration-300 hover:text-white">home</small
-				></a>
+					class="transition-colors duration-300 hover:text-white">home</small>
+			</a>
 			<Separator decorative orientation="vertical" />
 			<a
 				class="px-4"
 				href="/skills"
-				aria-current={$page.url.pathname === '/skills' ? 'page' : undefined}
-				><small
+				aria-current={$page.url.pathname === '/skills' ? 'page' : undefined}>
+				<small
 					class="transition-colors duration-300 hover:text-white"
-					class:text-gray-400={!isSkills}>skills</small
-				></a>
+					class:text-gray-400={!isSkills}>skills</small>
+			</a>
 			<Separator decorative orientation="vertical" />
 			<a
 				class="px-4"
 				href="/projects"
-				aria-current={$page.url.pathname === '/projects' ? 'page' : undefined}
-				><small
+				aria-current={$page.url.pathname === '/projects' ? 'page' : undefined}>
+				<small
 					class="transition-colors duration-300 hover:text-white"
-					class:text-gray-400={!isProjects}>projects</small
-				></a>
+					class:text-gray-400={!isProjects}>projects</small>
+			</a>
 		</nav>
 
 		<div class="me-4 ms-auto flex place-items-center gap-2">

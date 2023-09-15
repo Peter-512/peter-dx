@@ -4,6 +4,21 @@ import { fontFamily } from 'tailwindcss/defaultTheme';
 const config = {
 	darkMode: ['class'],
 	content: ['./src/**/*.{html,js,svelte,ts}'],
+	safelist: [
+		{
+			pattern:
+				/text-(amber|blue|cyan|emerald|fuchsia|gray|green|indigo|neutral|orange|pink|purple|red|rose|sky|stone|teal|violet|yellow|zinc)-800/
+		},
+		{
+			pattern:
+				/bg-(amber|blue|cyan|emerald|fuchsia|gray|green|indigo|neutral|orange|pink|purple|red|rose|sky|stone|teal|violet|yellow|zinc)-200/
+		},
+		{
+			pattern:
+				/bg-(amber|blue|cyan|emerald|fuchsia|gray|green|indigo|neutral|orange|pink|purple|red|rose|sky|stone|teal|violet|yellow|zinc)-200\/80/,
+			variants: ['hover']
+		}
+	],
 	theme: {
 		container: {
 			center: true,
