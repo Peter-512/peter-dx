@@ -4,12 +4,12 @@
 	import HoverCard from './HoverCard.svelte';
 	import Testimonial from './Testimonial.svelte';
 	import { datacampLogo } from '$lib/logos';
+	import { profile } from '$lib/images/index';
 
 	const images: Array<{ src: string; alt: string }> = Object.values(i);
 	// split images into 4 groups
-	const imageGroups: { src: string; alt: string }[][] = images.reduce(
+	const imageGroups = images.reduce<{ src: string; alt: string }[][]>(
 		(acc, curr, i) => {
-			// @ts-ignore
 			acc[i % 4].push(curr);
 			return acc;
 		},
@@ -21,6 +21,13 @@
 
 <svelte:head>
 	<title>Peter Buschenreiter</title>
+	<meta
+		property="description"
+		content="This is my personal portfolio featuring various projects I've worked on, some testimonials from former colleagues and my skills." />
+	<meta property="og:image" content={profile.src} />
+	<meta property="og:title" content="hi, i'm peter 👋" />
+	<meta property="og:description" content="come check out my portfolio!" />
+	<meta property="og:url" content="https://peter-dx.vercel.app/" />
 </svelte:head>
 
 <div class="flex flex-col gap-3">
