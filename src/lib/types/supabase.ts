@@ -116,6 +116,7 @@ export interface Database {
       }
       skills: {
         Row: {
+          color: string | null
           id: number
           level: string
           name: string
@@ -123,6 +124,7 @@ export interface Database {
           type: string
         }
         Insert: {
+          color?: string | null
           id?: number
           level: string
           name: string
@@ -130,6 +132,7 @@ export interface Database {
           type: string
         }
         Update: {
+          color?: string | null
           id?: number
           level?: string
           name?: string
@@ -140,18 +143,21 @@ export interface Database {
       }
       team_members: {
         Row: {
+          github_link: string
           id: number
-          image_url: string | null
+          image_url: string
           name: string
         }
         Insert: {
+          github_link: string
           id?: number
-          image_url?: string | null
+          image_url: string
           name: string
         }
         Update: {
+          github_link?: string
           id?: number
-          image_url?: string | null
+          image_url?: string
           name?: string
         }
         Relationships: []

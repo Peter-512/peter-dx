@@ -23,7 +23,7 @@
 	<title>Peter Buschenreiter</title>
 </svelte:head>
 
-<div class=" flex flex-col gap-3">
+<div class="flex flex-col gap-3">
 	<h1 class="text-2xl">hi, i'm peter 👋</h1>
 	<p class="text-gray-400">
 		I am a highly motivated and energetic person, always eager to learn new skills. After my
