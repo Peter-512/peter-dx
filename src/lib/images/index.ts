@@ -12,7 +12,7 @@ import selfieSrc from './selfie.webp';
 import styleSrc from './style.webp';
 import subwaySrc from './subway.webp';
 import weirdStareSrc from './weird-stare.webp';
-import profileImage from './profile-image.webp';
+import profileImage from './profile-image.jpeg';
 
 const bouldering = { src: boulderingSrc, alt: 'Bouldering' };
 const climbing1 = { src: climbing1Src, alt: 'Climbing' };
