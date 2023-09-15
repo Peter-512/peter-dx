@@ -28,6 +28,7 @@
 	<meta property="og:title" content="hi, i'm peter 👋" />
 	<meta property="og:description" content="come check out my portfolio!" />
 	<meta property="og:url" content="https://peter-dx.vercel.app/" />
+	<meta property="twitter:card" content="summary" />
 </svelte:head>
 
 <div class="flex flex-col gap-3">
