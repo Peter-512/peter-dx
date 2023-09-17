@@ -7,15 +7,15 @@ const config = {
 	safelist: [
 		{
 			pattern:
-				/text-(amber|blue|cyan|emerald|fuchsia|gray|green|indigo|neutral|orange|pink|purple|red|rose|sky|stone|teal|violet|yellow|zinc)-800/
+				/text-(amber|blue|cyan|lime|emerald|fuchsia|gray|green|indigo|neutral|orange|pink|purple|red|rose|sky|stone|teal|violet|yellow|zinc)-800/
 		},
 		{
 			pattern:
-				/bg-(amber|blue|cyan|emerald|fuchsia|gray|green|indigo|neutral|orange|pink|purple|red|rose|sky|stone|teal|violet|yellow|zinc)-200/
+				/bg-(amber|blue|cyan|lime|emerald|fuchsia|gray|green|indigo|neutral|orange|pink|purple|red|rose|sky|stone|teal|violet|yellow|zinc)-200/
 		},
 		{
 			pattern:
-				/bg-(amber|blue|cyan|emerald|fuchsia|gray|green|indigo|neutral|orange|pink|purple|red|rose|sky|stone|teal|violet|yellow|zinc)-200\/80/,
+				/bg-(amber|blue|cyan|lime|emerald|fuchsia|gray|green|indigo|neutral|orange|pink|purple|red|rose|sky|stone|teal|violet|yellow|zinc)-200\/80/,
 			variants: ['hover']
 		}
 	],
