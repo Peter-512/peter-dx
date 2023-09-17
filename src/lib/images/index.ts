@@ -24,7 +24,7 @@ const expo4 = { src: expo4Src, alt: 'Selfie of Seif, Filip and myself at Future 
 const selfie = { src: selfieSrc, alt: 'Selfie in Vienna on a nice summer day' };
 const style = { src: styleSrc, alt: 'Philip and I trying out stylish coats' };
 const subway = { src: subwaySrc, alt: 'Posing in front of the subway in Vienna' };
-const weirdStare = { src: weirdStareSrc, alt: 'Unknowingly got photgraphed while strolling at the christmas market in Vienna' };
+const weirdStare = { src: weirdStareSrc, alt: 'Surprisingly got photgraphed while strolling at the christmas market in Vienna' };
 
 export {
 	expo1,
