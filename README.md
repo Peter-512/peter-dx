@@ -1,38 +1,105 @@
-# create-svelte
+# Personal portfolio
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Installing dependencies and setup.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+Once you've created a project and installed dependencies with
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
+pnpm i
+```
 
-# create a new project in my-app
-npm create svelte@latest my-app
+### Supabase
+
+Also make sure you have the supabase CLI installed. If you don't, you can do so by running
+
+```bash
+brew install supabase/tap/supabase
+```
+
+Link the project with the right supabase project using
+
+```bash
+supabase link --project-ref [project-ref found in supabase URL]
+```
+
+### Vercel
+
+Link to the vercel project using
+
+```bash
+vercel link
+```
+
+Then pull down the env variables using
+
+```bash
+vercel env pull .env
 ```
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Make sure docker is running and run
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+supabase start
 ```
+
+to start the local supabase database. Existing migrations and `supabase/seed.sql` will be run on that database.
+Then run
+
+```bash
+pnpm run dev
+```
+
+to start the local dev server.
 
 ## Building
 
 To create a production version of your app:
 
 ```bash
-npm run build
+pnpm run build
 ```
 
-You can preview the production build with `npm run preview`.
+You can preview the production build with `pnpm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Migrations
+
+If you need to change the schema of the database you can run
+
+```bash
+supabase migration new [migration_name]
+```
+
+to generate a new migration file.
+Alternatively, you can use the [Supabase Studio GUI](https://localhost:54323/) to make changes to the local database and then generate a schema file based on the diff using
+
+```bash
+supabase db diff --use-migra -f [migration_name]
+```
+
+## Automatic type generation
+
+To keep types between the database and the frontend aligned, run
+
+```bash
+supabase gen types typescript --local --schema public > src/lib/types/supabase.ts
+```
+
+which will generate a typescript interface which gets injected when creating the supabase client, making the the queries with it completely typesafe.
+
+## Testing
+
+Some E2E tests are implemented on [checkly](https://app.checklyhq.com/) that run on every new deploy to vercel.
+
+## Debugging
+
+Svelte inspector has been added to the config, so just hit command + shift to enable it and jump directly to the code of the respective components.
+
+## Styling and component library
+
+[Tailwind](https://tailwindcss.com/) is used for styling and [shadcn-svelte](https://www.shadcn-svelte.com/docs) for the component library. Installed components can be found [here](src/lib/components/ui/).
+
+## Issue tracking
+
+Linear was used to keep track of issues. To link a PR to a Linear issue just put [DX-<num>] into the PR title.

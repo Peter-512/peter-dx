@@ -43,7 +43,26 @@ create table if not exists "public"."skills" (
     "color" text
 );
 
-alter table "public"."skills" add column "color" text;
+-- alter table "public"."skills" add column "color" text;
+DO $$ 
+BEGIN
+IF NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_name = 'skills' AND column_name = 'color') THEN
+    alter table "public"."skills" add column "color" text;
+END IF;
+END $$;
+
+DO $$
+BEGIN
+    IF NOT EXISTS (
+        SELECT constraint_name 
+        FROM information_schema.table_constraints 
+        WHERE table_name = 'your_table_name' 
+        AND constraint_type = 'PRIMARY KEY'
+    ) THEN
+        ALTER TABLE your_table_name
+        ADD CONSTRAINT pk_your_table_name PRIMARY KEY (column_name);
+    END IF;
+END $$;
 
 
 alter table "public"."skills" enable row level security;
