@@ -72,8 +72,34 @@ supabase migration new [migration_name]
 ```
 
 to generate a new migration file.
-Alternatively, you can use the Supabase Studio GUI on `https://localhost:54323/` to make changes to the local database and then generate a schema file based on the diff using
+Alternatively, you can use the [Supabase Studio GUI](https://localhost:54323/) to make changes to the local database and then generate a schema file based on the diff using
 
 ```bash
 supabase db diff --use-migra -f [migration_name]
 ```
+
+## Automatic type generation
+
+To keep types between the database and the frontend aligned, run
+
+```bash
+supabase gen types typescript --local --schema public > src/lib/types/supabase.ts
+```
+
+which will generate a typescript interface which gets injected when creating the supabase client, making the the queries with it completely typesafe.
+
+## Testing
+
+Some E2E tests are implemented on [checkly](https://app.checklyhq.com/) that run on every new deploy to vercel.
+
+## Debugging
+
+Svelte inspector has been added to the config, so just hit command + shift to enable it and jump directly to the code of the respective components.
+
+## Styling and component library
+
+[Tailwind](https://tailwindcss.com/) is used for styling and [shadcn-svelte](https://www.shadcn-svelte.com/docs) for the component library. Installed components can be found [here](src/lib/components/ui/).
+
+## Issue tracking
+
+Linear was used to keep track of issues. To link a PR to a Linear issue just put [DX-<num>] into the PR title.
