@@ -5,6 +5,7 @@
 	import Testimonial from './Testimonial.svelte';
 	import { datacampLogo } from '$lib/logos';
 	import profile from '$lib/images/profile-pic.png';
+	import ImageViewer from './ImageViewer.svelte';
 
 	const images: Array<{ src: string; alt: string }> = Object.values(i);
 	// split images into 4 groups
@@ -42,12 +43,7 @@
 		{#each imageGroups as images}
 			<div class="grid gap-4">
 				{#each images as image}
-					<div class="overflow-hidden rounded-lg">
-						<img
-							class="h-full w-full object-cover transition-all duration-300 ease-in-out hover:scale-110"
-							src={image.src}
-							alt={image.alt} />
-					</div>
+					<ImageViewer {...image} />
 				{/each}
 			</div>
 		{/each}
