@@ -1,17 +1,9 @@
 <script lang="ts">
-	import { Button, buttonVariants } from '$lib/components/ui/button';
 	import * as Dialog from '$lib/components/ui/dialog';
+
 	export let src: string;
 	export let alt: string;
 </script>
-
-<!-- <div class="overflow-hidden rounded-lg">
-	<img
-		class="h-full w-full cursor-pointer object-cover transition-all duration-300 ease-in-out hover:scale-110"
-		{src}
-		{alt}
-		on:click={toggleExpand} />
-</div> -->
 
 <Dialog.Root>
 	<Dialog.Trigger class="focus:outline-gray-200">
