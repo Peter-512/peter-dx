@@ -7,7 +7,7 @@
 
 <Dialog.Root>
 	<Dialog.Trigger class="focus:outline-gray-200">
-		<div class="overflow-hidden rounded-lg">
+		<div class="h-full overflow-hidden rounded-lg">
 			<img
 				class="h-full w-full cursor-pointer object-cover transition-all duration-300 ease-in-out hover:scale-110"
 				{src}
