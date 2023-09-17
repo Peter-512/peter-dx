@@ -12,7 +12,6 @@ import selfieSrc from './selfie.webp';
 import styleSrc from './style.webp';
 import subwaySrc from './subway.webp';
 import weirdStareSrc from './weird-stare.webp';
-import profileImage from './profile-pic.png';
 
 const bouldering = { src: boulderingSrc, alt: 'Bouldering' };
 const climbing1 = { src: climbing1Src, alt: 'Climbing' };
@@ -26,7 +25,6 @@ const selfie = { src: selfieSrc, alt: 'Selfie' };
 const style = { src: styleSrc, alt: 'Style' };
 const subway = { src: subwaySrc, alt: 'Subway' };
 const weirdStare = { src: weirdStareSrc, alt: 'Weird Stare' };
-const profile = { src: profileImage, alt: 'Profile Image' };
 
 export {
 	expo1,
@@ -41,5 +39,4 @@ export {
 	style,
 	subway,
 	weirdStare,
-	profile
 };

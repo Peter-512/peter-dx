@@ -4,7 +4,7 @@
 	import HoverCard from './HoverCard.svelte';
 	import Testimonial from './Testimonial.svelte';
 	import { datacampLogo } from '$lib/logos';
-	import { profile } from '$lib/images/index';
+	import profile from '$lib/images/profile-pic.png';
 
 	const images: Array<{ src: string; alt: string }> = Object.values(i);
 	// split images into 4 groups
@@ -22,9 +22,9 @@
 <svelte:head>
 	<title>Peter Buschenreiter</title>
 	<meta
-		property="description"
+		name="description"
 		content="This is my personal portfolio featuring various projects I've worked on, some testimonials from former colleagues and my skills." />
-	<meta property="og:image" content={profile.src} />
+	<meta property="og:image" content={profile} />
 	<meta property="og:title" content="hi, i'm peter 👋" />
 	<meta property="og:description" content="come check out my portfolio!" />
 	<meta property="og:url" content="https://peter-dx.vercel.app/" />
