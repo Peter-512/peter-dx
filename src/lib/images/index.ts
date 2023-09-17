@@ -13,18 +13,18 @@ import styleSrc from './style.webp';
 import subwaySrc from './subway.webp';
 import weirdStareSrc from './weird-stare.webp';
 
-const bouldering = { src: boulderingSrc, alt: 'Bouldering' };
-const climbing1 = { src: climbing1Src, alt: 'Climbing' };
-const climbing2 = { src: climbing2Src, alt: 'Climbing' };
-const climbing3 = { src: climbing3Src, alt: 'Climbing' };
-const expo1 = { src: expo1Src, alt: 'Expo' };
-const expo2 = { src: expo2Src, alt: 'Expo' };
-const expo3 = { src: expo3Src, alt: 'Expo' };
-const expo4 = { src: expo4Src, alt: 'Expo' };
-const selfie = { src: selfieSrc, alt: 'Selfie' };
-const style = { src: styleSrc, alt: 'Style' };
-const subway = { src: subwaySrc, alt: 'Subway' };
-const weirdStare = { src: weirdStareSrc, alt: 'Weird Stare' };
+const bouldering = { src: boulderingSrc, alt: 'Bouldering with my sister at the boulderbar in Vienna' };
+const climbing1 = { src: climbing1Src, alt: 'Climbing outside in Vienna' };
+const climbing2 = { src: climbing2Src, alt: 'Checking out a climbing route while preparing for it' };
+const climbing3 = { src: climbing3Src, alt: 'Looking at the top of an outdoor climb' };
+const expo1 = { src: expo1Src, alt: 'Filip and I talking to a Cronos recuiter at Future Entrepreneurship 2022' };
+const expo2 = { src: expo2Src, alt: 'Filip and I solving a puzzle on his phone at Future Entrepreneurship 2022' };
+const expo3 = { src: expo3Src, alt: 'Seif, Filip and I listening to a live "silent" podcast at Future Entrepreneurship 2022' };
+const expo4 = { src: expo4Src, alt: 'Selfie of Seif, Filip and myself at Future Entrepreneurship 2022' };
+const selfie = { src: selfieSrc, alt: 'Selfie in Vienna on a nice summer day' };
+const style = { src: styleSrc, alt: 'Philip and I trying out stylish coats' };
+const subway = { src: subwaySrc, alt: 'Posing in front of the subway in Vienna' };
+const weirdStare = { src: weirdStareSrc, alt: 'Unknowingly got photgraphed while strolling at the christmas market in Vienna' };
 
 export {
 	expo1,
