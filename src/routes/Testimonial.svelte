@@ -29,8 +29,8 @@
 		.join('');
 </script>
 
-<section use:transition={'card'}>
-	<Card.Root class={`bg-black ${isFull ? '' : 'md:max-w-md'} ${isRight ? 'place-self-end' : ''}`}>
+<section class={isRight ? 'self-end' : ''} use:transition={`card-${slug}`}>
+	<Card.Root class={`bg-black ${isFull ? '' : 'md:max-w-md'}`}>
 		<Card.Header>
 			<div class="flex items-center gap-4">
 				<Avatar.Root>
