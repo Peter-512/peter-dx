@@ -24,7 +24,40 @@ Engineering Manager',
 'https://ikbdmyijzonnuyehurhr.supabase.co/storage/v1/object/public/images/datacamp-logo.webp?t=2023-09-07T16%3A28%3A28.501Z', 
 'https://github.com/timsangster.png', 
 'Associate Engineering Manager at DataCamp during my first internship in 2022', 
-'I''ve always put a premium on self reliance and Peter showed excellent grit in researching issues himself before asking for help from the team.');
+'I''ve always put a premium on self reliance and Peter showed excellent grit in researching issues himself before asking for help from the team.'),
+(
+  'chris-ramakers',
+  'Chris Ramakers',
+  'To Whom It May Concern,
+
+I am writing to highly recommend Peter Buschenreiter for any software engineering position he might be seeking in the future. As an Engineering Manager at DataCamp, I had the pleasure of supervising Peter during his 2-month internship with our organization in 2023. In this short period, he has exceeded our expectations and showcased a commendable dedication and excellent skills in software engineering.
+
+His tenure at DataCamp was characterized by a number of remarkable traits:
+
+1. Autonomy: He displayed an outstanding balance between delivering product increments independently and understanding when to seek assistance.
+
+2. Collaboration: His intense collaboration across different functions, especially with other roles and product teams, was instrumental in ensuring our projects'' success.
+
+3. Adaptability: Peter has expressed a clear preference for frontend development. However, when presented with backend oriented tasks, he tackles them head-on. While he occasionally required support from colleagues on backend tasks, what stood out was his willingness to take on challenges even outside his primary domain of expertise or in unfamiliar technologies.
+
+4. Professionalism: Peter was not only a technically sound engineer but also a genuinely pleasant individual to work alongside. His mature and professional approach made him a valuable asset to our team.
+
+5. Effective Communication: His clarity in communication was evident, both in written and verbal forms. Moreover, his confidence and initiative in representing our team during departmental meetings, like presenting sprint reviews or announcing product launches, were notable.
+It is rare to find interns with the level of dedication, skill, and professionalism that Peter brought to our team at DataCamp. I firmly believe he has a promising career ahead and will be an invaluable asset to any team or organization he chooses to join.
+Please feel free to contact me directly if you have any further questions regarding Peter''s qualifications and achievements.
+
+Sincerely,
+
+Chris Ramakers
+Engineering Manager, DataCamp',
+'chris.ramakers@datacamp.com',
+'2023-09-18',
+'DataCamp',
+'https://ikbdmyijzonnuyehurhr.supabase.co/storage/v1/object/public/images/datacamp-logo.webp?t=2023-09-07T16%3A28%3A28.501Z', 
+'https://github.com/chrisramakers.png', 
+'Engineering Manager at DataCamp during my second internship in 2023',
+'It is rare to find interns with the level of dedication, skill, and professionalism that Peter brought to our team at DataCamp.'
+);
 
 
 insert into

@@ -66,9 +66,11 @@
 
 	<Separator decorative class="my-5" />
 
-	<h1 class="text-2xl">what others say about me 🤩</h1>
+	<h1 class="text-center text-2xl">what others say about me 🤩</h1>
 
-	{#each testimonials as testimonial, index (index)}
-		<Testimonial placement={index % 2 ? 'left' : 'right'} {...testimonial} />
-	{/each}
+	<div class="flex flex-col gap-4">
+		{#each testimonials as testimonial, index (index)}
+			<Testimonial placement={index % 2 ? 'left' : 'right'} {...testimonial} />
+		{/each}
+	</div>
 </div>
