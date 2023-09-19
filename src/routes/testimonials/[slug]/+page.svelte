@@ -5,6 +5,11 @@
 	import Testimonial from '../../Testimonial.svelte';
 	import { page } from '$app/stores';
 	import { error } from '@sveltejs/kit';
+	import SvelteMarkdown from 'svelte-markdown';
+	import P from './P.svelte';
+	import A from './A.svelte';
+	import Ol from './Ol.svelte';
+	import Li from './Li.svelte';
 
 	export let data: PageData;
 	const { testimonials } = data;
@@ -35,7 +40,9 @@
 			<Skeleton class="h-10 w-[100px]" />
 		</div>
 	{:then { content }}
-		{content}
+		<SvelteMarkdown
+			renderers={{ paragraph: P, link: A, list: Ol, listitem: Li }}
+			source={content} />
 	{:catch error}
 		<p class="text-red-500">{error.message}</p>
 	{/await}
