@@ -13,7 +13,8 @@
 		"db:migration:new": "supabase migration new",
 		"db:migration:auto": "supabase db diff --use-migra -f",
 		"db:types": "supabase gen types typescript --local --schema public > src/lib/types/supabase.ts",
-		"db:reset": "supabase db reset"
+		"db:reset": "supabase db reset",
+		"db:stop": "supabase stop"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^3.0.3",
