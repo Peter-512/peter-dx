@@ -1,8 +1,8 @@
 import { supabase } from '$lib/supabase';
 import { error } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
+import type { LayoutServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
+export const load: LayoutServerLoad = async () => {
 	const { data, error: e } = await supabase
 		.from('testimonials')
 		.select('name, description, quote, slug, image_url');
