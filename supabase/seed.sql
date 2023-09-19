@@ -8,7 +8,7 @@ I am writing to recommend Peter Buschenreiter. He worked with us at DataCamp as 
 
 During his time in my team Peter was able to deliver results consistently, he started by working on small front-end components and by the end of his 9 weeks internship he was able to work on any task planned for the team. Ranging from complex bugs in an API to multi-step modals with complex state.
 
-I’ve always put a premium on self reliance and Peter showed excellent grit in researching issues himself before asking for help from the team. He kept refining this balance of researching versus asking for help throughout his internship which showed his effort to integrate with the team and be productive at the same time.
+I''ve always put a premium on self reliance and Peter showed excellent grit in researching issues himself before asking for help from the team. He kept refining this balance of researching versus asking for help throughout his internship which showed his effort to integrate with the team and be productive at the same time.
 
 While we have a completely flexible work from home policy, Peter made the effort multiple times a week to travel to the office, more than an hour each way for him, showing his commitment to getting the most out of his internship and getting to know his team.
 I greatly enjoyed working with Peter and would not hesitate to hire him in any capacity in the future.
@@ -34,15 +34,15 @@ I am writing to highly recommend Peter Buschenreiter for any software engineerin
 
 His tenure at DataCamp was characterized by a number of remarkable traits:
 
-1. Autonomy: He displayed an outstanding balance between delivering product increments independently and understanding when to seek assistance.
+1. __Autonomy__: He displayed an outstanding balance between delivering product increments independently and understanding when to seek assistance.
 
-2. Collaboration: His intense collaboration across different functions, especially with other roles and product teams, was instrumental in ensuring our projects'' success.
+2. __Collaboration__: His intense collaboration across different functions, especially with other roles and product teams, was instrumental in ensuring our projects'' success.
 
-3. Adaptability: Peter has expressed a clear preference for frontend development. However, when presented with backend oriented tasks, he tackles them head-on. While he occasionally required support from colleagues on backend tasks, what stood out was his willingness to take on challenges even outside his primary domain of expertise or in unfamiliar technologies.
+3. __Adaptability__: Peter has expressed a clear preference for frontend development. However, when presented with backend oriented tasks, he tackles them head-on. While he occasionally required support from colleagues on backend tasks, what stood out was his willingness to take on challenges even outside his primary domain of expertise or in unfamiliar technologies.
 
-4. Professionalism: Peter was not only a technically sound engineer but also a genuinely pleasant individual to work alongside. His mature and professional approach made him a valuable asset to our team.
+4. __Professionalism__: Peter was not only a technically sound engineer but also a genuinely pleasant individual to work alongside. His mature and professional approach made him a valuable asset to our team.
 
-5. Effective Communication: His clarity in communication was evident, both in written and verbal forms. Moreover, his confidence and initiative in representing our team during departmental meetings, like presenting sprint reviews or announcing product launches, were notable.
+5. __Effective Communication__: His clarity in communication was evident, both in written and verbal forms. Moreover, his confidence and initiative in representing our team during departmental meetings, like presenting sprint reviews or announcing product launches, were notable.
 It is rare to find interns with the level of dedication, skill, and professionalism that Peter brought to our team at DataCamp. I firmly believe he has a promising career ahead and will be an invaluable asset to any team or organization he chooses to join.
 Please feel free to contact me directly if you have any further questions regarding Peter''s qualifications and achievements.
 
