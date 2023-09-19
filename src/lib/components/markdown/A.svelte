@@ -7,4 +7,5 @@
 	const parsedHref = parser.parseFromString(href, 'text/html').body.innerText;
 </script>
 
-<a {title} href={parsedHref}>{@html text}</a>
+<a class="text-gray-300 underline hover:underline-offset-4" {title} href={parsedHref}
+	>{@html text}</a>
