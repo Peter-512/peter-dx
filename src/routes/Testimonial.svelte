@@ -53,7 +53,7 @@
 				{:else}
 					<a class="ms-auto place-self-start outline-none" href={`testimonials/${slug}`}>
 						<Button class="rounded-full" variant="secondary">
-							{#if $navigating}
+							{#if $navigating?.to?.params?.slug === slug}
 								<Reload class="animate-spin outline-none" size="24" />
 							{:else}
 								<Link1 class="outline-none" size="24" />
