@@ -76,7 +76,7 @@
 		</Card.Content>
 
 		{#if company && received_at}
-			<Card.Footer class="flex justify-between text-gray-400">
+			<Card.Footer class="flex justify-between text-muted-foreground">
 				<small class="flex">
 					<Calendar class="me-2 place-self-center outline-none" />
 					{format(new Date(received_at), 'MMMM, do yyyy')}
