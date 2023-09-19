@@ -40,7 +40,7 @@
 				<div class="space-y-2">
 					<Card.Title>{name}</Card.Title>
 					{#if email}
-						<small class="flex items-center text-gray-400">
+						<small class="flex items-center text-muted-foreground">
 							<EnvelopeClosed class="me-2 outline-none" />
 							<a href={`mailto:${email}`}>
 								{email}
