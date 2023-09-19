@@ -6,10 +6,10 @@
 	import { page } from '$app/stores';
 	import { error } from '@sveltejs/kit';
 	import SvelteMarkdown from 'svelte-markdown';
-	import P from './P.svelte';
-	import A from './A.svelte';
-	import Ol from './Ol.svelte';
-	import Li from './Li.svelte';
+	import P from '$lib/components/markdown/P.svelte';
+	import A from '$lib/components/markdown/A.svelte';
+	import Ol from '$lib/components/markdown/Ol.svelte';
+	import Li from '$lib/components/markdown/Li.svelte';
 
 	export let data: PageData;
 	const { testimonials } = data;
