@@ -3,6 +3,7 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import HoverCard from '../HoverCard.svelte';
 	import { format } from 'date-fns';
+	import { GithubLogo } from 'radix-icons-svelte';
 
 	export let data;
 </script>
@@ -17,7 +18,10 @@
 		<Card.Root>
 			<Card.Header>
 				<div class="flex justify-between">
-					<Card.Title>{project.name}</Card.Title>
+					<Card.Title class="flex gap-2">
+						<a href={project.link}><GithubLogo size={24} /></a>
+						<span class="self-center">{project.name}</span>
+					</Card.Title>
 					<Card.Description>
 						{format(new Date(project.start_date), 'MMMM, do yyyy')}
 					</Card.Description>
