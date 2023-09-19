@@ -3,13 +3,17 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "supabase start && vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"db:migration:new": "supabase migration new",
+		"db:migration:auto": "supabase db diff --use-migra -f",
+		"db:types": "supabase gen types typescript --local --schema public > src/lib/types/supabase.ts",
+		"db:reset": "supabase db reset"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^3.0.3",
