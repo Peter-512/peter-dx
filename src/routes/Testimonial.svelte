@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang='ts'>
 	import * as Card from '$lib/components/ui/card';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { Button } from '$lib/components/ui/button';
@@ -29,19 +29,19 @@
 		.join('');
 </script>
 
-<section class={isRight ? 'self-end' : ''} use:transition={`card-${slug}`}>
+<section class:self-end={isRight} use:transition={`card-${slug}`}>
 	<Card.Root class={`bg-black ${isFull ? '' : 'md:max-w-md'}`}>
 		<Card.Header>
-			<div class="flex items-center gap-4">
+			<div class='flex items-center gap-4'>
 				<Avatar.Root>
-					<Avatar.Image src={image_url} alt={name} />
+					<Avatar.Image alt={name} src={image_url} />
 					<Avatar.Fallback>{fallback}</Avatar.Fallback>
 				</Avatar.Root>
-				<div class="space-y-2">
+				<div class='space-y-2'>
 					<Card.Title>{name}</Card.Title>
 					{#if email}
-						<small class="flex items-center text-muted-foreground">
-							<EnvelopeClosed class="me-2 outline-none" />
+						<small class='flex items-center text-muted-foreground'>
+							<EnvelopeClosed class='me-2 outline-none' />
 							<a href={`mailto:${email}`}>
 								{email}
 							</a>
@@ -49,14 +49,14 @@
 					{/if}
 				</div>
 				{#if company_logo_url}
-					<img class="ms-auto" src={company_logo_url} alt="Company logo" />
+					<img class='ms-auto' src={company_logo_url} alt='Company logo' />
 				{:else}
-					<a class="ms-auto place-self-start outline-none" href={`testimonials/${slug}`}>
-						<Button class="rounded-full" variant="secondary">
+					<a class='ms-auto place-self-start outline-none' href={`testimonials/${slug}`}>
+						<Button class='rounded-full' variant='secondary'>
 							{#if $navigating?.to?.params?.slug === slug}
-								<Reload class="animate-spin outline-none" size="24" />
+								<Reload class='animate-spin outline-none' size='24' />
 							{:else}
-								<Link1 class="outline-none" size="24" />
+								<Link1 class='outline-none' size='24' />
 							{/if}
 						</Button>
 					</a>
@@ -68,17 +68,17 @@
 		</Card.Header>
 
 		<Card.Content>
-			<blockquote class="border-l-2 pl-6 italic">
-				<Quote class="relative bottom-2 inline-block outline-none" />
+			<blockquote class='border-l-2 pl-6 italic'>
+				<Quote class='relative bottom-2 inline-block outline-none' />
 				{quote}
-				<Quote class="relative bottom-2 inline-block outline-none" />
+				<Quote class='relative bottom-2 inline-block outline-none' />
 			</blockquote>
 		</Card.Content>
 
 		{#if company && received_at}
-			<Card.Footer class="flex justify-between text-muted-foreground">
-				<small class="flex">
-					<Calendar class="me-2 place-self-center outline-none" />
+			<Card.Footer class='flex justify-between text-muted-foreground'>
+				<small class='flex'>
+					<Calendar class='me-2 place-self-center outline-none' />
 					{format(new Date(received_at), 'MMMM, do yyyy')}
 				</small>
 				<small>{company}</small>

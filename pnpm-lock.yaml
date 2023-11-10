@@ -20,12 +20,18 @@ dependencies:
   date-fns:
     specifier: ^2.30.0
     version: 2.30.0
+  lucide:
+    specifier: ^0.292.0
+    version: 0.292.0
   radix-icons-svelte:
     specifier: ^1.2.1
     version: 1.2.1
   svelte-markdown:
     specifier: ^0.4.0
     version: 0.4.0(svelte@4.2.0)
+  svelte-vertical-timeline:
+    specifier: ^1.0.0
+    version: 1.0.0
   tailwind-merge:
     specifier: ^1.14.0
     version: 1.14.0
@@ -1784,6 +1790,10 @@ packages:
       yallist: 4.0.0
     dev: true
 
+  /lucide@0.292.0:
+    resolution: {integrity: sha512-30r4YbM6nfLiDNzS/YSFLNt/g98XIxBfFwtxF9yYJNpYyAq+iwQx8kM6MWxnh21WuQSkAbEQyru46y5IbCoUjw==}
+    dev: false
+
   /magic-string@0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
@@ -2641,6 +2651,10 @@ packages:
     dependencies:
       svelte: 4.2.0
     dev: true
+
+  /svelte-vertical-timeline@1.0.0:
+    resolution: {integrity: sha512-o//Dhy6UTk9sNS5WZ6hPalBL+DHnFozY1T6cb4vKxOEbqAFlJyCQWYtLHBcE3zIxpclx0TtBCxQayZ4fHZ2aDg==}
+    dev: false
 
   /svelte@4.2.0:
     resolution: {integrity: sha512-kVsdPjDbLrv74SmLSUzAsBGquMs4MPgWGkGLpH+PjOYnFOziAvENVzgJmyOCV2gntxE32aNm8/sqNKD6LbIpeQ==}
