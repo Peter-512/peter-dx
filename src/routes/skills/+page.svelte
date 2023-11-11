@@ -9,6 +9,9 @@
 	<title>Skills</title>
 </svelte:head>
 
-<h1 class="my-5 text-2xl">skills i picked up along the way 🤓</h1>
+<section class='max-w-3xl m-auto'>
 
-<DataTable {skills} />
+	<h1 class='my-5 text-2xl'>skills i picked up along the way 🤓</h1>
+
+	<DataTable {skills} />
+</section>
