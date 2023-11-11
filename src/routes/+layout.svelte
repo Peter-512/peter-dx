@@ -49,7 +49,6 @@
 					class:text-gray-400={!isProjects}>experience</small>
 			</a>
 		</nav>
-
 		<div class='me-4 ms-auto flex place-items-center gap-2'>
 			<a class='outline-none' href='https://github.com/Peter-512'>
 				<GithubLogo size='20' />
@@ -57,10 +56,10 @@
 			<a class='outline-none' href='https://www.linkedin.com/in/peter-512/'>
 				<LinkedinLogo size='20' />
 			</a>
-			<a class='outline-none' href='https://discord.com/channels/817744253756112947'>
+			<a class='outline-none hidden sm:inline' href='https://discord.com/channels/817744253756112947'>
 				<DiscordLogo size='22' />
 			</a>
-			<a class='outline-none' href='https://x.com/Chrysler_512'>
+			<a class='outline-none hidden sm:inline' href='https://x.com/Chrysler_512'>
 				<span class='text-2xl'>&#120143;</span>
 			</a>
 		</div>
