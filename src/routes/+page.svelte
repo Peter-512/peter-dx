@@ -14,7 +14,7 @@
 	import Expo3 from '$lib/images/expo-3.jpg?enhanced';
 	import Expo4 from '$lib/images/expo-4.jpg?enhanced';
 	import Selfie from '$lib/images/selfie.jpg?enhanced';
-	import Style from '$lib/images/style.jpg?enhanced';
+	import Style from '$lib/images/style.jpeg?enhanced';
 	import Subway from '$lib/images/subway.jpg?enhanced';
 	import WeirdStare from '$lib/images/weird-stare.jpg?enhanced';
 
