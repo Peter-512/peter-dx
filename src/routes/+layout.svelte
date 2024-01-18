@@ -19,28 +19,28 @@
 	<header class='mb-16 flex max-w-3xl m-auto' use:transition={'header'}>
 		<nav class='mx-5 flex items-center'>
 			<Button aria-current={$page.url.pathname === '/' ? 'page' : undefined}
-					class={`transition-colors duration-300 hover:text-white relative ${!isHome && 'text-gray-400'}`}
+					class={`transition-colors duration-300 hover:text-white hover:no-underline relative ${!isHome && 'text-gray-400'}`}
 					href='/'
 					variant='link'>
 				home
 			</Button>
 			<Separator decorative orientation='vertical' />
 			<Button aria-current={$page.url.pathname === '/skills' ? 'page' : undefined}
-					class={`transition-colors duration-300 hover:text-white relative ${!isSkills && 'text-gray-400'}`}
+					class={`transition-colors duration-300 hover:text-white hover:no-underline relative ${!isSkills && 'text-gray-400'}`}
 					href='/skills'
 					variant='link'>
 				skills
 			</Button>
 			<Separator decorative orientation='vertical' />
 			<Button aria-current={$page.url.pathname === '/projects' ? 'page' : undefined}
-					class={`transition-colors duration-300 hover:text-white relative ${!isProjects && 'text-gray-400'}`}
+					class={`transition-colors duration-300 hover:text-white hover:no-underline relative ${!isProjects && 'text-gray-400'}`}
 					href='/projects'
 					variant='link'>
 				projects
 			</Button>
 			<Separator decorative orientation='vertical' />
 			<Button aria-current={$page.url.pathname === '/experience' ? 'page' : undefined}
-					class={`transition-colors duration-300 hover:text-white relative ${!isExperience && 'text-gray-400'}`}
+					class={`transition-colors duration-300 hover:text-white hover:no-underline relative ${!isExperience && 'text-gray-400'}`}
 					href='/experience'
 					variant='link'>
 				experience
