@@ -1,5 +1,5 @@
 <script>
-	import '../app.postcss';
+	import '../app.pcss';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import { page } from '$app/stores';
 	import { setupViewTransition } from 'sveltekit-view-transition';

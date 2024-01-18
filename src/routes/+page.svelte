@@ -31,7 +31,10 @@
 		],
 		[
 			{ src: Climbing2, alt: 'Checking out a climbing route while preparing for it' },
-			{ src: Expo3, alt: 'Seif, Filip and I listening to a live "silent" podcast at Future Entrepreneurship 2022' },
+			{
+				src: Expo3,
+				alt: 'Seif, Filip and I listening to a live "silent" podcast at Future Entrepreneurship 2022'
+			},
 			{ src: Subway, alt: 'Posing in front of the subway in Vienna' }
 		],
 		[
@@ -78,7 +81,8 @@
 							</div>
 						</Dialog.Trigger>
 						<Dialog.Content>
-							<enhanced:img alt={image.alt} class='h-full w-full object-cover' src={image.src} />
+							<enhanced:img alt={image.alt} class='h-full w-full object-cover rounded-md'
+										  src={image.src} />
 							<Dialog.Footer>
 								<p>
 									{image.alt}
