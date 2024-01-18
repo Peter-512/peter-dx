@@ -3,8 +3,6 @@
 	import { Skeleton } from '$lib/components/ui/skeleton';
 	import type { PageData } from './$types';
 	import Testimonial from '../../Testimonial.svelte';
-	import { page } from '$app/stores';
-	import { error } from '@sveltejs/kit';
 	import SvelteMarkdown from 'svelte-markdown';
 	import P from '$lib/components/markdown/P.svelte';
 	import A from '$lib/components/markdown/A.svelte';
@@ -12,20 +10,15 @@
 	import Li from '$lib/components/markdown/Li.svelte';
 
 	export let data: PageData;
-	const { testimonials } = data;
-	const testimonial = testimonials.find((t) => t.slug === $page.params.slug);
-	if (!testimonial) {
-		error(404, 'Testimonial not found');
-	}
 	const { testimonialDetails } = data;
 </script>
 
 <svelte:head>
-	<title>LOR by {testimonial.name}</title>
+	<title>Letter of recommendation by {testimonialDetails.name}</title>
 </svelte:head>
 
 <section class='max-w-3xl m-auto'>
-	<Testimonial {...testimonial} {...testimonialDetails} />
+	<Testimonial {...testimonialDetails} />
 
 	<Separator class='my-5' decorative />
 </section>
