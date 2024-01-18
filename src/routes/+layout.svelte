@@ -3,65 +3,63 @@
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import { page } from '$app/stores';
 	import { setupViewTransition } from 'sveltekit-view-transition';
-	import { DiscordLogo, GithubLogo, LinkedinLogo } from 'svelte-radix';
+	import { Github, Linkedin } from 'lucide-svelte';
 	import { shadcnSvelteLogo, svelteLogo, supabaseLogo, vercelLogo } from '$lib/logos';
 	import HoverCard from './HoverCard.svelte';
+	import { Button } from '$lib/components/ui/button/index';
 
 	const { transition } = setupViewTransition();
 	$: isHome = $page.route.id === '/';
 	$: isSkills = $page.route.id === '/skills';
 	$: isProjects = $page.route.id === '/projects';
+	$: isExperience = $page.route.id === '/experience';
 </script>
 
 <div class='m-5 mx-auto'>
-	<header class=' mb-16 flex max-w-3xl m-auto' use:transition={'header'}>
-		<nav class='me-5 flex h-5 items-center'>
-			<a aria-current={$page.url.pathname === '/' ? 'page' : undefined} class='px-4' href='/'
-			><small
-				class='transition-colors duration-300 hover:text-white'
-				class:text-gray-400={!isHome}>home</small>
-			</a>
+	<header class='mb-16 flex max-w-3xl m-auto' use:transition={'header'}>
+		<nav class='ms-5 flex items-center'>
+			<Button aria-current={$page.url.pathname === '/' ? 'page' : undefined}
+					class={`transition-colors duration-300 hover:text-white hover:no-underline relative ${!isHome && 'text-gray-400'}`}
+					href='/'
+					variant='link'>
+				home
+			</Button>
 			<Separator decorative orientation='vertical' />
-			<a
-				aria-current={$page.url.pathname === '/skills' ? 'page' : undefined}
-				class='px-4'
-				href='/skills'>
-				<small
-					class='transition-colors duration-300 hover:text-white'
-					class:text-gray-400={!isSkills}>skills</small>
-			</a>
+			<Button aria-current={$page.url.pathname === '/skills' ? 'page' : undefined}
+					class={`transition-colors duration-300 hover:text-white hover:no-underline relative ${!isSkills && 'text-gray-400'}`}
+					href='/skills'
+					variant='link'>
+				skills
+			</Button>
 			<Separator decorative orientation='vertical' />
-			<a
-				aria-current={$page.url.pathname === '/projects' ? 'page' : undefined}
-				class='px-4'
-				href='/projects'>
-				<small
-					class='transition-colors duration-300 hover:text-white'
-					class:text-gray-400={!isProjects}>projects</small>
-			</a>
+			<Button aria-current={$page.url.pathname === '/projects' ? 'page' : undefined}
+					class={`transition-colors duration-300 hover:text-white hover:no-underline relative ${!isProjects && 'text-gray-400'}`}
+					href='/projects'
+					variant='link'>
+				projects
+			</Button>
 			<Separator decorative orientation='vertical' />
-			<a
-				aria-current={$page.url.pathname === '/experience' ? 'page' : undefined}
-				class='px-4'
-				href='/experience'>
-				<small
-					class='transition-colors duration-300 hover:text-white'
-					class:text-gray-400={!isProjects}>experience</small>
-			</a>
+			<Button aria-current={$page.url.pathname === '/experience' ? 'page' : undefined}
+					class={`transition-colors duration-300 hover:text-white hover:no-underline relative ${!isExperience && 'text-gray-400'}`}
+					href='/experience'
+					variant='link'>
+				experience
+			</Button>
 		</nav>
-		<div class='me-4 ms-auto flex place-items-center gap-2'>
-			<a class='outline-none' href='https://github.com/Peter-512'>
-				<GithubLogo size='20' />
-			</a>
-			<a class='outline-none' href='https://www.linkedin.com/in/peter-512/'>
-				<LinkedinLogo size='20' />
-			</a>
-			<a class='outline-none hidden sm:inline' href='https://discord.com/channels/817744253756112947'>
-				<DiscordLogo size='22' />
-			</a>
-			<a class='outline-none hidden sm:inline' href='https://x.com/Chrysler_512'>
-				<span class='text-2xl'>&#120143;</span>
-			</a>
+		<div class='ms-auto flex place-items-center me-5'>
+			<Button href='https://github.com/Peter-512' target='_blank' variant='ghost'>
+				<Github size={20} />
+			</Button>
+			<Button class='hidden sm:inline' href='https://www.linkedin.com/in/peter-512/' target='_blank'
+					variant='ghost'>
+				<Linkedin size={20} />
+			</Button>
+			<Button class='hover:no-underline text-xl leading-none hidden sm:inline-block'
+					href='https://x.com/Chrysler_512'
+					target='_blank'
+					variant='ghost'>
+				&#120143;
+			</Button>
 		</div>
 	</header>
 	<main class='mx-5'>
@@ -111,11 +109,7 @@
         text-wrap: balance;
     }
 
-    nav > a {
-        position: relative;
-    }
-
-    a[aria-current='page']::after {
+    :global(a[aria-current='page']::after) {
         --size: 0.5px;
         position: absolute;
         content: '';

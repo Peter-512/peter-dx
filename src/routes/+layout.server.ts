@@ -7,6 +7,6 @@ export const load: LayoutServerLoad = async () => {
 		.from('testimonials')
 		.select('name, description, quote, slug, image_url')
 		.order('received_at', { ascending: false });
-	if (e) throw error(404, 'Not found');
+	if (e) error(404, 'Not found');
 	return { testimonials: data };
 };

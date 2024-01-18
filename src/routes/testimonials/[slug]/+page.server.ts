@@ -8,7 +8,7 @@ const streamContent = async (slug: string) => {
 		.select('content')
 		.eq('slug', slug)
 		.single();
-	if (e) throw error(404, 'Not found');
+	if (e) error(404, 'Not found');
 	return data;
 };
 
@@ -16,9 +16,11 @@ export const load: PageServerLoad = async ({ params }) => {
 	const { slug } = params;
 	const { data, error: e } = await supabase
 		.from('testimonials')
-		.select('received_at, email, company, company_logo_url')
+		.select(
+			'received_at, email, company, company_logo_url, name, description, image_url, slug, quote'
+		)
 		.eq('slug', slug)
 		.single();
-	if (e) throw error(404, 'Not found');
+	if (e) error(404, 'Not found');
 	return { testimonialDetails: data, streamed: { content: streamContent(slug) } };
 };
