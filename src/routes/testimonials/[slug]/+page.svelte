@@ -15,7 +15,7 @@
 	const { testimonials } = data;
 	const testimonial = testimonials.find((t) => t.slug === $page.params.slug);
 	if (!testimonial) {
-		throw error(404, 'Testimonial not found');
+		error(404, 'Testimonial not found');
 	}
 	const { testimonialDetails } = data;
 </script>

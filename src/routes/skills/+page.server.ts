@@ -4,6 +4,6 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
 	const { data, error: e } = await supabase.from('skills').select('*');
-	if (e) throw error(404, 'Not found');
+	if (e) error(404, 'Not found');
 	return { skills: data };
 };

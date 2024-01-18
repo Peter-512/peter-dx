@@ -14,9 +14,9 @@ export const load: PageServerLoad = async ({ cookies }) => {
 		skills(name, color)`
 		)
 		.order('start_date', { ascending: false });
-	if (e) throw error(404, 'Not found');
+	if (e) error(404, 'Not found');
 
-	cookies.set('SameSite', 'Secure');
+	cookies.set('SameSite', 'Secure', { path: '/' });
 
 	return { projects: data };
 };

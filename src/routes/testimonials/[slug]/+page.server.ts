@@ -8,7 +8,7 @@ const streamContent = async (slug: string) => {
 		.select('content')
 		.eq('slug', slug)
 		.single();
-	if (e) throw error(404, 'Not found');
+	if (e) error(404, 'Not found');
 	return data;
 };
 
@@ -19,6 +19,6 @@ export const load: PageServerLoad = async ({ params }) => {
 		.select('received_at, email, company, company_logo_url')
 		.eq('slug', slug)
 		.single();
-	if (e) throw error(404, 'Not found');
+	if (e) error(404, 'Not found');
 	return { testimonialDetails: data, streamed: { content: streamContent(slug) } };
 };
