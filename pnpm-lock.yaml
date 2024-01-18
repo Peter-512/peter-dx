@@ -23,9 +23,9 @@ dependencies:
   date-fns:
     specifier: ^3.2.0
     version: 3.2.0
-  lucide:
+  lucide-svelte:
     specifier: ^0.312.0
-    version: 0.312.0
+    version: 0.312.0(svelte@4.2.9)
   radix-icons-svelte:
     specifier: ^1.2.1
     version: 1.2.1
@@ -2507,8 +2507,12 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /lucide@0.312.0:
-    resolution: {integrity: sha512-55fRrT/HuYDJqhLEfxmbIT91GiYNg8eB2tnPrI3gsFgHMgCAMXpPSYl9YYffQUz4t2OreO1SLn74JWTLr9J43A==}
+  /lucide-svelte@0.312.0(svelte@4.2.9):
+    resolution: {integrity: sha512-FB5e+oU4Hue8/OiRCx4zur7sdve27pQ5F9JnfYGRlVK8fFkaZQManwn8QvW9a5yr2Z/DJNdyeDmBp5afN7Pdkg==}
+    peerDependencies:
+      svelte: '>=3 <5'
+    dependencies:
+      svelte: 4.2.9
     dev: false
 
   /magic-string@0.30.5:
