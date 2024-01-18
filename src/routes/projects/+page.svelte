@@ -4,6 +4,7 @@
 	import HoverCard from '../HoverCard.svelte';
 	import { format } from 'date-fns';
 	import { GithubLogo } from 'radix-icons-svelte';
+	import { Button } from '$lib/components/ui/button/index';
 
 	export let data;
 </script>
@@ -19,9 +20,9 @@
 			<Card.Header>
 				<div class='flex justify-between'>
 					<Card.Title class='flex gap-2'>
-						<a href={project.link}>
-							<GithubLogo size={24} />
-						</a>
+						<Button variant='link' class='px-0' href={project.link}>
+							<GithubLogo size={24} tabindex='-1' />
+						</Button>
 						<span class='self-center'>{project.name}</span>
 					</Card.Title>
 					<Card.Description>
