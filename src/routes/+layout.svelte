@@ -47,13 +47,13 @@
 			</Button>
 		</nav>
 		<div class='ms-auto flex place-items-center me-5'>
-			<Button href='https://github.com/Peter-512' variant='ghost'>
+			<Button href='https://github.com/Peter-512' target='_blank' variant='ghost'>
 				<Github size={20} />
 			</Button>
-			<Button href='https://www.linkedin.com/in/peter-512/' variant='ghost'>
+			<Button href='https://www.linkedin.com/in/peter-512/' target='_blank' variant='ghost'>
 				<Linkedin size={20} />
 			</Button>
-			<Button class='hover:no-underline' href='https://x.com/Chrysler_512' variant='ghost'>
+			<Button class='hover:no-underline' href='https://x.com/Chrysler_512' target='_blank' variant='ghost'>
 				<span class='text-2xl'>&#120143;</span>
 			</Button>
 		</div>
