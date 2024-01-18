@@ -52,15 +52,13 @@
 				{#if company_logo_url}
 					<img class='ms-auto' src={company_logo_url} alt='Company logo' />
 				{:else}
-					<a class='ms-auto place-self-start outline-none' href={`testimonials/${slug}`}>
-						<Button class='rounded-full' variant='secondary'>
-							{#if $navigating?.to?.params?.slug === slug}
-								<RotateCw class='animate-spin' />
-							{:else}
-								<Link2 />
-							{/if}
-						</Button>
-					</a>
+					<Button class='rounded-full ms-auto' variant='secondary' href={`testimonials/${slug}`}>
+						{#if $navigating?.to?.params?.slug === slug}
+							<RotateCw class='animate-spin' />
+						{:else}
+							<Link2 />
+						{/if}
+					</Button>
 				{/if}
 			</div>
 			<Card.Description>
