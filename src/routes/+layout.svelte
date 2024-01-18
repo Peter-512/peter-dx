@@ -17,7 +17,7 @@
 
 <div class='m-5 mx-auto'>
 	<header class='mb-16 flex max-w-3xl m-auto' use:transition={'header'}>
-		<nav class='mx-5 flex items-center'>
+		<nav class='ms-5 flex items-center'>
 			<Button aria-current={$page.url.pathname === '/' ? 'page' : undefined}
 					class={`transition-colors duration-300 hover:text-white hover:no-underline relative ${!isHome && 'text-gray-400'}`}
 					href='/'
@@ -50,11 +50,15 @@
 			<Button href='https://github.com/Peter-512' target='_blank' variant='ghost'>
 				<Github size={20} />
 			</Button>
-			<Button href='https://www.linkedin.com/in/peter-512/' target='_blank' variant='ghost'>
+			<Button class='hidden sm:inline' href='https://www.linkedin.com/in/peter-512/' target='_blank'
+					variant='ghost'>
 				<Linkedin size={20} />
 			</Button>
-			<Button class='hover:no-underline' href='https://x.com/Chrysler_512' target='_blank' variant='ghost'>
-				<span class='text-2xl'>&#120143;</span>
+			<Button class='hover:no-underline text-xl leading-none hidden sm:inline-block'
+					href='https://x.com/Chrysler_512'
+					target='_blank'
+					variant='ghost'>
+				&#120143;
 			</Button>
 		</div>
 	</header>
