@@ -135,6 +135,10 @@ When using this function to create the quantum circuit, we need to specify the n
 space and the trash space. It is important to note that the total number of qubits equals the natural logarithm of the
 dimension of the input data.
 
+$$
+\text{Number of qubits} = \log_2(16*16) = 8
+$$
+
 It is obviously important that this number is an integer. Therefore, the dimensions used earlier in the preprocessing
 step are chosen on purpose.
 
