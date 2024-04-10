@@ -10,4 +10,5 @@ export type BlogPost = {
 	tags: string[];
 	published: boolean;
 	slug: string;
+	picture: string;
 };

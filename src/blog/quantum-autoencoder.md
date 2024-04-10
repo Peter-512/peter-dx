@@ -7,6 +7,8 @@ tags:
   - 'autoencoder'
   - 'image-compression'
 description: 'Compressing images using qubits'
+picture: '/quantum-autoencoder/reconstructed-images.png'
+slug: 'quantum-autoencoder'
 published: true
 ---
 

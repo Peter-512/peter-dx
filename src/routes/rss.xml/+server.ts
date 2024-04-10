@@ -1,5 +1,7 @@
 import type { BlogPost } from '$lib/types/types';
 
+export const prerender = true;
+
 export async function GET({ fetch }) {
 	const response = await fetch('api/posts');
 	const posts: BlogPost[] = await response.json();
@@ -12,15 +14,15 @@ export async function GET({ fetch }) {
 				<title>Peter Buschenreiter's blog</title>
 				<description>Just writing about things that excite me</description>
 				<link>https://peter-dx.vercel.app/</link>
-				<atom:link href='https://peter-dx.vercel.app//rss.xml' rel='self' type='application/rss+xml'/>
+				<atom:link href='https://peter-dx.vercel.app/rss.xml' rel='self' type='application/rss+xml'/>
 				${posts
 					.map(
 						(post) => `
 						<item>
 							<title>${post.title}</title>
 							<description>${post.description}</description>
-							<link>https://peter-dx.vercel.app}/${post.slug}</link>
-							<guid isPermaLink='true'>https://peter-dx.vercel.app/${post.slug}</guid>
+							<link>https://peter-dx.vercel.app/blog/${post.slug}</link>
+							<guid isPermaLink='true'>https://peter-dx.vercel.app/blog/${post.slug}</guid>
 							<pubDate>${new Date(post.date).toUTCString()}</pubDate>
 						</item>
 					`

@@ -19,7 +19,7 @@
 <div class='flex flex-col gap-3 max-w-3xl m-auto'>
 	<div class='flex justify-between'>
 		<h1 class='mb-4 text-2xl'>stuff i wrote ✍🏻</h1>
-		<Button variant='secondary'>
+		<Button href='rss.xml' target='_blank' variant='secondary'>
 			RSS
 			<Rss class='ml-2' />
 		</Button>
