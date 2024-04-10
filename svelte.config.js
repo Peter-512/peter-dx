@@ -2,7 +2,10 @@ import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { escapeSvelte, mdsvex } from 'mdsvex';
 import rehypeKatexSvelte from 'rehype-katex-svelte';
+import rehypeSlug from 'rehype-slug';
 import remarkMath from 'remark-math';
+import remarkToc from 'remark-toc';
+import remarkUnwrapImages from 'remark-unwrap-images';
 import { getHighlighter } from 'shiki';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -12,8 +15,8 @@ const config = {
 	preprocess: [
 		vitePreprocess(),
 		mdsvex({
-			remarkPlugins: [remarkMath],
-			rehypePlugins: [rehypeKatexSvelte],
+			remarkPlugins: [remarkMath, [remarkToc, { tight: true }], remarkUnwrapImages],
+			rehypePlugins: [rehypeKatexSvelte, rehypeSlug],
 			extensions: ['.md'],
 			highlight: {
 				highlighter: async (code, lang = 'text') => {

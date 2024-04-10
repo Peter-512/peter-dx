@@ -8,8 +8,9 @@ tags:
   - 'image-compression'
 description: 'Compressing images using qubits'
 published: true
-theme: 'poimandres'
 ---
+
+## Table of Contents
 
 ## Introduction
 
@@ -33,7 +34,7 @@ reconstructed data be as close as possible to the original input data. The encod
 that the decoder learns to reconstruct the original data from the lower-dimensional representation that the encoder
 produces.
 
-![Classical Autoencoder architecture](/classical-autoencoder.png)
+![Classical Autoencoder architecture](/quantum-autoencoder/classical-autoencoder.png)
 
 ## Quantum Autoencoders
 
@@ -46,12 +47,12 @@ amount of qubits. Just like in classical autoencoders, the goal is to have the r
 possible to the original input data by training the encoder and decoder together, so that the decoder learns to
 reconstruct the original data from the quantum state that the encoder produces
 
-![Quantum Autoencoder architecture](/quantum-autoencoder.png)
+![Quantum Autoencoder architecture](/quantum-autoencoder/quantum-autoencoder.png)
 
 In the picture above, the quantum autoencoder is represented as a quantum circuit. The similarities to the classical
 autoencoder are evident, being the encoder and decoder parts as well as the different layers.
 
-![Quantum Autoencoder components](/components.png)
+![Quantum Autoencoder components](/quantum-autoencoder/components.png)
 
 The quantum autoencoder consists of the following parts:
 
@@ -71,7 +72,7 @@ The quantum autoencoder consists of the following parts:
 
 ### SWAP Test
 
-![SWAP Test](/SWAP-test.png)
+![SWAP Test](/quantum-autoencoder/SWAP-test.png)
 
 The SWAP test exploits the principles of quantum interference and entanglement to efficiently compare quantum states.
 Assume we have two quantum states, $|\psi\rangle$ and $|\phi\rangle$. First the auxiliary qubit is set to the
@@ -161,11 +162,11 @@ qc = qc.compose(ae)
 
 Drawing this circuit will result in the following:
 
-![Quantum Autoencoder circuit](/quantum-autoencoder-circuit.png)
+![Quantum Autoencoder circuit](/quantum-autoencoder/quantum-autoencoder-circuit.png)
 
 Decomposing the block labeled "RealAmplitudes", known as the `ansatz` will result in the following:
 
-![Quantum Autoencoder ansatz](/ansatz.png)
+![Quantum Autoencoder ansatz](/quantum-autoencoder/ansatz.png)
 
 All of those $R_y$ gates (rotation gates around the y-axis) are the weights of the quantum autoencoder. They are the
 parameters that will be trained to compress the input data into a lower-dimensional quantum state and then try to
@@ -209,7 +210,7 @@ opt_result = opt.minimize(fun=cost_func_digits, x0=initial_point)
 
 Plotting the objective function will result in the following:
 
-![Objective function](/convergance-plot.png)
+![Objective function](/quantum-autoencoder/convergance-plot.png)
 
 ### Results
 
@@ -230,7 +231,7 @@ test_qc = test_qc.compose(ansatz_qc.inverse())
 
 Drawing this circuit will result in the following:
 
-![Quantum Autoencoder test circuit](/quantum-autoencoder-test-circuit.png)
+![Quantum Autoencoder test circuit](/quantum-autoencoder/quantum-autoencoder-test-circuit.png)
 
 We can calculate the fidelity, a measurement of the similarity of the reconstructed data with the original data using
 the following function:
@@ -257,32 +258,32 @@ Calculating the average fidelity of the reconstructed images will result in the 
 
 Plotting a histogram of these fidelity values will result in the following:
 
-![Fidelity histogram](/fidelities.png)
+![Fidelity histogram](/quantum-autoencoder/fidelities.png)
 
 We can see that the fidelity values for the 1 digit are by far the highest, which makes sense since it is the easiest
 shape.
 
 Plotting a histogram of the individual fidelity values will result in the following:
 
-![Individual fidelity histogram](/individual-fidelities.png)
+![Individual fidelity histogram](/quantum-autoencoder/individual-fidelities.png)
 
 We can see that the vast majority of fidelity values are between 0.01 and 0.03 and only a few are higher than that.
 
 The following images show some of the best reconstructed images and their original counterparts on the right and left,
 respectively.
 
-![Reconstructed images](/reconstructed-images.png)
+![Reconstructed images](/quantum-autoencoder/reconstructed-images.png)
 
 ### Findings and Observations
 
 While we are getting some decent recognizable results, the model definitely has some quirks. For instance the model
 seems to struggle at reconstructing horizontal lines as we can clearly see in the following examples.
 
-![The autoencoder seems to struggle to en- and decode horizontal lines](/bad-reconstructions.png)
+![The autoencoder seems to struggle to en- and decode horizontal lines](/quantum-autoencoder/bad-reconstructions.png)
 
 And it does a lot better on examples that are more vertical as seen here.
 
-![It performs better on elongated vertically written digits](/good-reconstructions.png)
+![It performs better on elongated vertically written digits](/quantum-autoencoder/good-reconstructions.png)
 
 This could indicate a bias towards those sorts of shapes in the training data.
 
