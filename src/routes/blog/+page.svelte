@@ -1,4 +1,5 @@
 <script lang='ts'>
+	import profile from '$lib/images/profile-pic.png';
 	import { Button } from '$lib/components/ui/button';
 	import { Rss } from 'lucide-svelte';
 	import { Separator } from '$lib/components/ui/separator';
@@ -14,6 +15,12 @@
 
 <svelte:head>
 	<title>Blog</title>
+	<meta content='A collection of blog posts written by me.' name='description' />
+	<meta content='Blog' property='og:title' />
+	<meta content='A collection of blog posts written by me.' property='og:description' />
+	<meta content='https://peter-dx.vercel.app/blog' property='og:url' />
+	<meta content={profile} property='og:image' />
+	<meta content='summary_large_image' name='twitter:card' />
 </svelte:head>
 
 <div class='flex flex-col gap-3 max-w-3xl m-auto'>
