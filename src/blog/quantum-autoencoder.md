@@ -20,11 +20,9 @@ at an implementation of a quantum autoencoder using Qiskit, a quantum computing 
 conclusions.
 
 > In case you are new to quantum computing, my
->
-colleagues [Paul Mocanu](https://www.linkedin.com/in/paulmocanu/), [Seif Sabry](https://www.linkedin.com/in/seifeldin-sabry-b8a542202/)
+> colleagues [Paul Mocanu](https://www.linkedin.com/in/paulmocanu/), [Seif Sabry](https://www.linkedin.com/in/seifeldin-sabry-b8a542202/)
 > and I wrote an introductory article to cover the basics, which you can
->
-find [here](https://medium.com/@cristi.mocanu25/unveiling-quantum-computing-the-future-of-machine-learning-e60d34bd52fe).
+> find [here](https://medium.com/@cristi.mocanu25/unveiling-quantum-computing-the-future-of-machine-learning-e60d34bd52fe).
 
 ## Classical Autoencoders
 
