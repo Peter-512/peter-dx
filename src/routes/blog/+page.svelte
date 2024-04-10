@@ -1,5 +1,7 @@
 <script lang='ts'>
 	import { Button } from '$lib/components/ui/button';
+	import { Rss } from 'lucide-svelte';
+	import { Separator } from '$lib/components/ui/separator';
 
 	export let data;
 
@@ -15,7 +17,13 @@
 </svelte:head>
 
 <div class='flex flex-col gap-3 max-w-3xl m-auto'>
-	<h1 class='mb-4 text-2xl'>stuff i wrote ✍🏻</h1>
+	<div class='flex justify-between'>
+		<h1 class='mb-4 text-2xl'>stuff i wrote ✍🏻</h1>
+		<Button variant='secondary'>
+			RSS
+			<Rss class='ml-2' />
+		</Button>
+	</div>
 	<ul>
 		{#each data.posts as { title, description, date, slug }}
 			<li>
@@ -25,6 +33,7 @@
 						<span class='text-sm'>{formatter.format(new Date(date))}</span>
 					</div>
 					<p class='text-muted-foreground'>{description}</p>
+					<Separator class='mt-2 mb-6' />
 				</div>
 			</li>
 		{/each}
