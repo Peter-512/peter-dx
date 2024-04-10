@@ -15,8 +15,8 @@
 	import Expo4 from '$lib/images/expo-4.jpg?enhanced';
 	import Selfie from '$lib/images/selfie.jpg?enhanced';
 	import Style from '$lib/images/style.jpeg?enhanced';
-	import Subway from '$lib/images/subway.jpg?enhanced';
 	import WeirdStare from '$lib/images/weird-stare.jpg?enhanced';
+	import Hackathon from '$lib/images/hackathon.jpeg?enhanced';
 
 	const imageGroups = [
 		[
@@ -35,7 +35,10 @@
 				src: Expo3,
 				alt: 'Seif, Filip and I listening to a live "silent" podcast at Future Entrepreneurship 2022'
 			},
-			{ src: Subway, alt: 'Posing in front of the subway in Vienna' }
+			{
+				src: Hackathon,
+				alt: 'Seif, Filip and I attending a hackathon sponsored by the European Commission about RAG using local LLMs on the Jean Zay supercomputer'
+			}
 		],
 		[
 			{ src: Climbing3, alt: 'Looking at the top of an outdoor climb' },
