@@ -1,6 +1,4 @@
 <script lang='ts'>
-	import profile from '$lib/images/profile-pic.png';
-
 	export let data;
 
 	const formatter = new Intl.DateTimeFormat('en-US', {
@@ -27,4 +25,11 @@
 	<span class='text-muted-foreground'>{data.metadata.description}</span>
 </h1>
 <small class=''>{formatter.format(new Date(data.metadata.date))}</small>
+
+<div class='flex gap-2 mt-4'>
+	{#each data.metadata.tags as tag}
+		<span class='py-1 px-3 rounded-full bg-accent text-sm'>&num;{tag}</span>
+	{/each}
+</div>
+
 <svelte:component this={data.content}></svelte:component>
