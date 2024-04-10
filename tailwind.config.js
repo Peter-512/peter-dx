@@ -28,6 +28,14 @@ const config = {
 			}
 		},
 		extend: {
+			typography: {
+				quoteless: {
+					css: {
+						'blockquote p:first-of-type::before': { content: 'none' },
+						'blockquote p:first-of-type::after': { content: 'none' }
+					}
+				}
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
