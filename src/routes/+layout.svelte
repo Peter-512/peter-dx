@@ -10,7 +10,7 @@
 
 	const { transition } = setupViewTransition();
 	$: isHome = $page.route.id === '/';
-	$: isSkills = $page.route.id === '/skills';
+	$: isBlog = $page.route.id === '/blog';
 	$: isProjects = $page.route.id === '/projects';
 	$: isExperience = $page.route.id === '/experience';
 </script>
@@ -25,11 +25,11 @@
 				home
 			</Button>
 			<Separator decorative orientation='vertical' />
-			<Button aria-current={$page.url.pathname === '/skills' ? 'page' : undefined}
-					class={`transition-colors duration-300 hover:text-white hover:no-underline relative ${!isSkills && 'text-gray-400'}`}
-					href='/skills'
+			<Button aria-current={$page.url.pathname === '/blog' ? 'page' : undefined}
+					class={`transition-colors duration-300 hover:text-white hover:no-underline relative ${!isBlog && 'text-gray-400'}`}
+					href='/blog'
 					variant='link'>
-				skills
+				blog
 			</Button>
 			<Separator decorative orientation='vertical' />
 			<Button aria-current={$page.url.pathname === '/projects' ? 'page' : undefined}
