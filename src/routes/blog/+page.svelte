@@ -3,6 +3,12 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Rss } from 'lucide-svelte';
 	import { Separator } from '$lib/components/ui/separator';
+	import TagBadge from './TagBadge.svelte';
+	import { setupViewTransition } from 'sveltekit-view-transition';
+	import type { BlogPost } from '$lib/types/types';
+	import { slide, fly } from 'svelte/transition';
+	import { pushState } from '$app/navigation';
+	import { page } from '$app/stores';
 
 	export let data;
 
@@ -11,6 +17,41 @@
 		month: 'long',
 		day: 'numeric'
 	});
+
+	export let activeTags: string[] = $page.state.activeTags || [];
+	$: {
+		if ($page.state.activeTags !== undefined && activeTags.length !== $page.state.activeTags?.length) {
+			activeTags = $page.state.activeTags;
+		}
+		if ($page.state.activeTags === undefined) {
+			activeTags = [];
+		}
+	}
+
+	$: filteredPosts = activeTags.length > 0 ?
+		data.posts.filter(({ tags }) => activeTags.every(tag => tags.includes(tag))) as BlogPost[] :
+		data.posts;
+
+	const selectTag = (tag: string) => {
+		if (activeTags.includes(tag)) {
+			return;
+		}
+		activeTags.push(tag);
+		activeTags = activeTags;
+		pushState('/blog', { activeTags });
+	};
+
+	const unselectTag = (tag: string) => {
+		activeTags = activeTags.filter(t => t !== tag);
+		pushState('/blog', { activeTags });
+	};
+
+	const unselectAllTags = () => {
+		activeTags = [];
+		pushState('/blog', { activeTags });
+	};
+
+	const { transition } = setupViewTransition();
 </script>
 
 <svelte:head>
@@ -32,17 +73,47 @@
 		</Button>
 	</div>
 	<ul>
-		{#each data.posts as { title, description, date, slug }}
-			<li>
+		{#if activeTags.length > 0}
+			<div transition:slide class='mb-2 space-x-2'>filtered posts by
+				{#each activeTags as tag}
+					<TagBadge size='sm' {tag} onClick={() => unselectTag(tag)}
+							  transitionKey={`blog-filter-${tag}`}>
+						<span class='text-red-500'>X</span>
+					</TagBadge>
+				{/each}
+				{#if activeTags.length > 1}
+					 <span>
+						  <button transition:fly
+								  class='bg-destructive hover:bg-destructive/80 text-xs px-3 py-1 rounded-full'
+								  on:click={unselectAllTags}>clear all
+						  </button>
+					 </span>
+				{/if}
+			</div>
+		{/if}
+		{#each filteredPosts as { title, description, date, slug, tags }}
+			<li transition:slide>
 				<div class='flex flex-col'>
 					<div class='flex justify-between'>
-						<Button class='px-0 text-lg' variant='link' href='/blog/{slug}'>{title}</Button>
-						<span class='text-sm'>{formatter.format(new Date(date))}</span>
+						<span use:transition={`blog-title-${slug}`}>
+							<Button class='px-0 text-lg' variant='link' href='/blog/{slug}'>{title}</Button>
+						</span>
+						<small use:transition={`blog-date-${slug}`}
+							   class='text-sm'>{formatter.format(new Date(date))}</small>
 					</div>
-					<p class='text-muted-foreground'>{description}</p>
+					<p use:transition={`blog-description-${slug}`}
+					   class='text-muted-foreground'>{description}</p>
+					<div class='flex flex-wrap gap-2 my-4'>
+						{#each tags as tag}
+							<TagBadge size='sm' {tag} transitionKey={slug} onClick={() => selectTag(tag)} />
+						{/each}
+					</div>
 					<Separator class='mt-2 mb-6' />
 				</div>
 			</li>
+		{:else}
+			<p>no blog posts with tag{activeTags.length > 1 ? 's' : ''} {activeTags.map(t => `'${t}'`).join(', ')}
+				yet</p>
 		{/each}
 	</ul>
 </div>

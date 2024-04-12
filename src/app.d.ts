@@ -5,6 +5,10 @@ declare global {
 		// interface Error {}
 		// interface Locals {}
 		// interface PageData {}
+		interface PageState {
+			activeTags: string[];
+		}
+
 		// interface Platform {}
 	}
 }
