@@ -3,6 +3,9 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Rss } from 'lucide-svelte';
 	import { Separator } from '$lib/components/ui/separator';
+	import TagBadge from './TagBadge.svelte';
+	import { page } from '$app/stores';
+	import { setupViewTransition } from 'sveltekit-view-transition';
 
 	export let data;
 
@@ -11,6 +14,11 @@
 		month: 'long',
 		day: 'numeric'
 	});
+
+	const tags = $page.url.searchParams.getAll('tags') || [];
+	const lastTag = tags.pop() || '';
+
+	const { transition } = setupViewTransition();
 </script>
 
 <svelte:head>
@@ -32,14 +40,23 @@
 		</Button>
 	</div>
 	<ul>
-		{#each data.posts as { title, description, date, slug }}
+		{#each data.posts as { title, description, date, slug, tags }}
 			<li>
 				<div class='flex flex-col'>
 					<div class='flex justify-between'>
-						<Button class='px-0 text-lg' variant='link' href='/blog/{slug}'>{title}</Button>
-						<span class='text-sm'>{formatter.format(new Date(date))}</span>
+						<span use:transition={`blog-title-${slug}`}>
+							<Button class='px-0 text-lg' variant='link' href='/blog/{slug}'>{title}</Button>
+						</span>
+						<small use:transition={`blog-date-${slug}`}
+							   class='text-sm'>{formatter.format(new Date(date))}</small>
 					</div>
-					<p class='text-muted-foreground'>{description}</p>
+					<p use:transition={`blog-description-${slug}`}
+					   class='text-muted-foreground'>{description}</p>
+					<div class='flex flex-wrap gap-2 my-4'>
+						{#each tags as tag}
+							<TagBadge size='sm' {tag} transitionKey={slug} />
+						{/each}
+					</div>
 					<Separator class='mt-2 mb-6' />
 				</div>
 			</li>

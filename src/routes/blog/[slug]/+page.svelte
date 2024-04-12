@@ -1,4 +1,7 @@
 <script lang='ts'>
+	import TagBadge from '../TagBadge.svelte';
+	import { setupViewTransition } from 'sveltekit-view-transition';
+
 	export let data;
 
 	const formatter = new Intl.DateTimeFormat('en-US', {
@@ -6,6 +9,8 @@
 		month: 'long',
 		day: 'numeric'
 	});
+
+	const { transition } = setupViewTransition();
 </script>
 
 <svelte:head>
@@ -21,14 +26,16 @@
 </svelte:head>
 
 <h1 class='text-balance'>
-	<span class='text-balance'>{data.metadata.title} —</span>
-	<span class='text-muted-foreground'>{data.metadata.description}</span>
+	<span class='text-balance' use:transition={`blog-title-${data.metadata.slug}`}>{data.metadata.title} —</span>
+	<span class='text-muted-foreground'
+		  use:transition={`blog-description-${data.metadata.slug}`}>{data.metadata.description}</span>
 </h1>
-<small class=''>{formatter.format(new Date(data.metadata.date))}</small>
+<small use:transition={`blog-date-${data.metadata.slug}`}>{formatter.format(new Date(data.metadata.date))}</small>
 
 <div class='flex gap-2 mt-4 flex-wrap'>
 	{#each data.metadata.tags as tag}
-		<span class='py-1 px-3 rounded-full bg-slate-800 text-sm whitespace-nowrap'>&num;{tag}</span>
+		{@const transitionKey = data.metadata.slug}
+		<TagBadge {tag} {transitionKey} />
 	{/each}
 </div>
 
