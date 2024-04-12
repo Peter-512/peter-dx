@@ -1,6 +1,7 @@
 <script lang='ts'>
 	import TagBadge from '../TagBadge.svelte';
 	import { setupViewTransition } from 'sveltekit-view-transition';
+	import { goto } from '$app/navigation';
 
 	export let data;
 
@@ -9,6 +10,10 @@
 		month: 'long',
 		day: 'numeric'
 	});
+
+	const filterByTag = (tag: string) => {
+		goto('/blog', { state: { activeTags: [tag] } });
+	};
 
 	const { transition } = setupViewTransition();
 </script>
@@ -35,7 +40,7 @@
 <div class='flex gap-2 mt-4 flex-wrap'>
 	{#each data.metadata.tags as tag}
 		{@const transitionKey = data.metadata.slug}
-		<TagBadge {tag} {transitionKey} />
+		<TagBadge {tag} onClick={() => filterByTag(tag)} {transitionKey} />
 	{/each}
 </div>
 

@@ -6,6 +6,9 @@
 	import TagBadge from './TagBadge.svelte';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import type { BlogPost } from '$lib/types/types';
+	import { slide, fly } from 'svelte/transition';
+	import { pushState } from '$app/navigation';
+	import { page } from '$app/stores';
 
 	export let data;
 
@@ -15,18 +18,37 @@
 		day: 'numeric'
 	});
 
-	let activeTag = '';
+	export let activeTags: string[] = $page.state.activeTags || [];
+	$: {
+		if ($page.state.activeTags !== undefined && activeTags.length !== $page.state.activeTags?.length) {
+			activeTags = $page.state.activeTags;
+		}
+		if ($page.state.activeTags === undefined) {
+			activeTags = [];
+		}
+	}
 
-	$: filteredPosts = activeTag !== '' ? data.posts.filter(({ tags }) => tags.includes(activeTag)) as BlogPost[] : data.posts;
-
-	$: console.log('filteredPosts', filteredPosts);
+	$: filteredPosts = activeTags.length > 0 ?
+		data.posts.filter(({ tags }) => activeTags.every(tag => tags.includes(tag))) as BlogPost[] :
+		data.posts;
 
 	const selectTag = (tag: string) => {
-		activeTag = tag;
+		if (activeTags.includes(tag)) {
+			return;
+		}
+		activeTags.push(tag);
+		activeTags = activeTags;
+		pushState('/blog', { activeTags });
 	};
 
-	const unselectTag = () => {
-		activeTag = '';
+	const unselectTag = (tag: string) => {
+		activeTags = activeTags.filter(t => t !== tag);
+		pushState('/blog', { activeTags });
+	};
+
+	const unselectAllTags = () => {
+		activeTags = [];
+		pushState('/blog', { activeTags });
 	};
 
 	const { transition } = setupViewTransition();
@@ -51,14 +73,26 @@
 		</Button>
 	</div>
 	<ul>
-		{#if activeTag !== ''}
-			filtered posts by
-			<TagBadge size='sm' tag={activeTag} onClick={unselectTag} transitionKey={`blog-filter-${activeTag}`}>
-				<span class='text-red-500'>X</span>
-			</TagBadge>
+		{#if activeTags.length > 0}
+			<div transition:slide class='mb-2 space-x-2'>filtered posts by
+				{#each activeTags as tag}
+					<TagBadge size='sm' {tag} onClick={() => unselectTag(tag)}
+							  transitionKey={`blog-filter-${tag}`}>
+						<span class='text-red-500'>X</span>
+					</TagBadge>
+				{/each}
+				{#if activeTags.length > 1}
+					 <span>
+						  <button transition:fly
+								  class='bg-destructive hover:bg-destructive/80 text-xs px-3 py-1 rounded-full'
+								  on:click={unselectAllTags}>clear all
+						  </button>
+					 </span>
+				{/if}
+			</div>
 		{/if}
 		{#each filteredPosts as { title, description, date, slug, tags }}
-			<li>
+			<li transition:slide>
 				<div class='flex flex-col'>
 					<div class='flex justify-between'>
 						<span use:transition={`blog-title-${slug}`}>
@@ -78,7 +112,8 @@
 				</div>
 			</li>
 		{:else}
-			<p>no blog posts with tag {activeTag} yet</p>
+			<p>no blog posts with tag{activeTags.length > 1 ? 's' : ''} {activeTags.map(t => `'${t}'`).join(', ')}
+				yet</p>
 		{/each}
 	</ul>
 </div>
