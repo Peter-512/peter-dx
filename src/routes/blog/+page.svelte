@@ -4,8 +4,8 @@
 	import { Rss } from 'lucide-svelte';
 	import { Separator } from '$lib/components/ui/separator';
 	import TagBadge from './TagBadge.svelte';
-	import { page } from '$app/stores';
 	import { setupViewTransition } from 'sveltekit-view-transition';
+	import type { BlogPost } from '$lib/types/types';
 
 	export let data;
 
@@ -15,17 +15,19 @@
 		day: 'numeric'
 	});
 
-	$: paramTags = $page.url.searchParams.getAll('tags') || [];
-	let tagList = '';
-	$: {
-		if (paramTags.length > 1) {
-			const tagCopy = paramTags.slice(0, -1).map(tag => `'${tag}'`);
-			tagList = `${tagCopy.join(', ')} and '${paramTags.at(-1)}'`;
-		} else {
-			tagList = `'${paramTags[0]}'`;
-		}
-	}
-	$: filteredPosts = data.posts.filter(({ tags }) => paramTags.length === 0 || paramTags.every(tag => tags.includes(tag)));
+	let activeTag = '';
+
+	$: filteredPosts = activeTag !== '' ? data.posts.filter(({ tags }) => tags.includes(activeTag)) as BlogPost[] : data.posts;
+
+	$: console.log('filteredPosts', filteredPosts);
+
+	const selectTag = (tag: string) => {
+		activeTag = tag;
+	};
+
+	const unselectTag = () => {
+		activeTag = '';
+	};
 
 	const { transition } = setupViewTransition();
 </script>
@@ -49,30 +51,34 @@
 		</Button>
 	</div>
 	<ul>
+		{#if activeTag !== ''}
+			filtered posts by
+			<TagBadge size='sm' tag={activeTag} onClick={unselectTag} transitionKey={`blog-filter-${activeTag}`}>
+				<span class='text-red-500'>X</span>
+			</TagBadge>
+		{/if}
 		{#each filteredPosts as { title, description, date, slug, tags }}
-			{#if paramTags.length === 0 || paramTags.every(tag => tags.includes(tag))}
-				<li>
-					<div class='flex flex-col'>
-						<div class='flex justify-between'>
+			<li>
+				<div class='flex flex-col'>
+					<div class='flex justify-between'>
 						<span use:transition={`blog-title-${slug}`}>
 							<Button class='px-0 text-lg' variant='link' href='/blog/{slug}'>{title}</Button>
 						</span>
-							<small use:transition={`blog-date-${slug}`}
-								   class='text-sm'>{formatter.format(new Date(date))}</small>
-						</div>
-						<p use:transition={`blog-description-${slug}`}
-						   class='text-muted-foreground'>{description}</p>
-						<div class='flex flex-wrap gap-2 my-4'>
-							{#each tags as tag}
-								<TagBadge size='sm' {tag} transitionKey={slug} />
-							{/each}
-						</div>
-						<Separator class='mt-2 mb-6' />
+						<small use:transition={`blog-date-${slug}`}
+							   class='text-sm'>{formatter.format(new Date(date))}</small>
 					</div>
-				</li>
-			{/if}
+					<p use:transition={`blog-description-${slug}`}
+					   class='text-muted-foreground'>{description}</p>
+					<div class='flex flex-wrap gap-2 my-4'>
+						{#each tags as tag}
+							<TagBadge size='sm' {tag} transitionKey={slug} onClick={() => selectTag(tag)} />
+						{/each}
+					</div>
+					<Separator class='mt-2 mb-6' />
+				</div>
+			</li>
 		{:else}
-			<p>no blog posts with tag{paramTags.length > 1 ? 's' : ''} {tagList} yet</p>
+			<p>no blog posts with tag {activeTag} yet</p>
 		{/each}
 	</ul>
 </div>
