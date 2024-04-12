@@ -43,6 +43,10 @@
 					<Separator class='mt-2 mb-6' />
 				</div>
 			</li>
+		{:else}
+			<p>no posts with
+				tag{tags.length > 1 ? 's' : ''} {tags.map(tag => `'${tag}'`).join(', ')} {tags.length >= 1 ? `and '${lastTag}'` : `'${lastTag}'`}
+				yet</p>
 		{/each}
 	</ul>
 </div>
