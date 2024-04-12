@@ -15,8 +15,17 @@
 		day: 'numeric'
 	});
 
-	const tags = $page.url.searchParams.getAll('tags') || [];
-	const lastTag = tags.pop() || '';
+	$: paramTags = $page.url.searchParams.getAll('tags') || [];
+	let tagList = '';
+	$: {
+		if (paramTags.length > 1) {
+			const tagCopy = paramTags.slice(0, -1).map(tag => `'${tag}'`);
+			tagList = `${tagCopy.join(', ')} and '${paramTags.at(-1)}'`;
+		} else {
+			tagList = `'${paramTags[0]}'`;
+		}
+	}
+	$: filteredPosts = data.posts.filter(({ tags }) => paramTags.length === 0 || paramTags.every(tag => tags.includes(tag)));
 
 	const { transition } = setupViewTransition();
 </script>
@@ -40,30 +49,30 @@
 		</Button>
 	</div>
 	<ul>
-		{#each data.posts as { title, description, date, slug, tags }}
-			<li>
-				<div class='flex flex-col'>
-					<div class='flex justify-between'>
+		{#each filteredPosts as { title, description, date, slug, tags }}
+			{#if paramTags.length === 0 || paramTags.every(tag => tags.includes(tag))}
+				<li>
+					<div class='flex flex-col'>
+						<div class='flex justify-between'>
 						<span use:transition={`blog-title-${slug}`}>
 							<Button class='px-0 text-lg' variant='link' href='/blog/{slug}'>{title}</Button>
 						</span>
-						<small use:transition={`blog-date-${slug}`}
-							   class='text-sm'>{formatter.format(new Date(date))}</small>
+							<small use:transition={`blog-date-${slug}`}
+								   class='text-sm'>{formatter.format(new Date(date))}</small>
+						</div>
+						<p use:transition={`blog-description-${slug}`}
+						   class='text-muted-foreground'>{description}</p>
+						<div class='flex flex-wrap gap-2 my-4'>
+							{#each tags as tag}
+								<TagBadge size='sm' {tag} transitionKey={slug} />
+							{/each}
+						</div>
+						<Separator class='mt-2 mb-6' />
 					</div>
-					<p use:transition={`blog-description-${slug}`}
-					   class='text-muted-foreground'>{description}</p>
-					<div class='flex flex-wrap gap-2 my-4'>
-						{#each tags as tag}
-							<TagBadge size='sm' {tag} transitionKey={slug} />
-						{/each}
-					</div>
-					<Separator class='mt-2 mb-6' />
-				</div>
-			</li>
+				</li>
+			{/if}
 		{:else}
-			<p>no posts with
-				tag{tags.length > 1 ? 's' : ''} {tags.map(tag => `'${tag}'`).join(', ')} {tags.length >= 1 ? `and '${lastTag}'` : `'${lastTag}'`}
-				yet</p>
+			<p>no blog posts with tag{paramTags.length > 1 ? 's' : ''} {tagList} yet</p>
 		{/each}
 	</ul>
 </div>
