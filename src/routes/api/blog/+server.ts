@@ -3,7 +3,7 @@ import { json } from '@sveltejs/kit';
 
 export const prerender = true;
 
-async function getBlogPosts(filterBy: (postTags: string[]) => boolean) {
+async function getBlogPosts() {
 	const posts: BlogPost[] = [];
 
 	const paths = import.meta.glob('/src/blog/*.md', { eager: true });
@@ -14,7 +14,7 @@ async function getBlogPosts(filterBy: (postTags: string[]) => boolean) {
 		if (file && typeof file === 'object' && 'metadata' in file && slug) {
 			const metadata = file.metadata as Omit<BlogPost, 'slug'>;
 			const post = { ...metadata, slug } satisfies BlogPost;
-			post.published && filterBy(post.tags) && posts.push(post);
+			post.published && posts.push(post);
 		}
 	}
 
@@ -23,11 +23,7 @@ async function getBlogPosts(filterBy: (postTags: string[]) => boolean) {
 	return posts;
 }
 
-export async function GET({ url }) {
-	const filterBy = (postTags: string[]) => {
-		const tags = url.searchParams.getAll('tags');
-		return tags.length === 0 || tags.every((tag) => postTags.includes(tag));
-	};
-	const posts = await getBlogPosts(filterBy);
+export async function GET() {
+	const posts = await getBlogPosts();
 	return json(posts);
 }
