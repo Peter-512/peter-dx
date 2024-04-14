@@ -3,12 +3,23 @@
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { scale } from 'svelte/transition';
 
-	export let text: string;
-	export let githubAccount: string;
-	export let imageUrl: string;
-	export let githubLinkPrefix = '';
-	export let kind: 'avatar' | 'default' = 'default';
-	export let placement: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
+	type Props = {
+		text: string;
+		githubAccount: string;
+		imageUrl: string;
+		githubLinkPrefix?: string;
+		kind?: 'avatar' | 'default';
+		placement?: 'top' | 'bottom' | 'left' | 'right';
+	};
+
+	const {
+		text,
+		githubAccount,
+		imageUrl,
+		githubLinkPrefix = '',
+		kind = 'default',
+		placement = 'bottom'
+	}: Props = $props();
 
 	const githubBaseUrl = 'https://github.com';
 	const githubUserUrl = githubAccount.startsWith('https')
