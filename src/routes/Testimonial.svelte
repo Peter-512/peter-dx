@@ -10,16 +10,31 @@
 
 	const { transition } = setupViewTransition();
 
-	export let name: string;
-	export let description: string;
-	export let image_url: string;
-	export let slug: string;
-	export let quote: string;
-	export let placement: 'left' | 'right' | 'full' = 'full';
-	export let company = '';
-	export let email = '';
-	export let company_logo_url = '';
-	export let received_at = '';
+	type Props = {
+		name: string;
+		description: string;
+		image_url: string;
+		slug: string;
+		quote: string;
+		placement: 'right' | 'full' | 'left';
+		company?: string;
+		email?: string;
+		company_logo_url?: string;
+		received_at?: string;
+	};
+
+	const {
+		name,
+		description,
+		image_url,
+		slug,
+		quote,
+		placement = 'full',
+		company = '',
+		email = '',
+		company_logo_url = '',
+		received_at = ''
+	}: Props = $props();
 
 	const isRight = placement === 'right';
 	const isFull = placement === 'full';
