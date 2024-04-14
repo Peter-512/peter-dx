@@ -18,7 +18,7 @@
 		day: 'numeric'
 	});
 
-	export let activeTags: string[] = $page.state.activeTags || [];
+	let activeTags: string[] = $page.state.activeTags || [];
 	$: {
 		if ($page.state.activeTags !== undefined && activeTags.length !== $page.state.activeTags?.length) {
 			activeTags = $page.state.activeTags;
