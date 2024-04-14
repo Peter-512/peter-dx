@@ -47,7 +47,7 @@
 		]
 	];
 
-	export let data;
+	const { data } = $props();
 	const { testimonials } = data;
 </script>
 
