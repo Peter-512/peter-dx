@@ -77,3 +77,22 @@
         @apply bg-background text-foreground;
     }
 }
+
+pre code {
+    display: grid;
+    counter-reset: line-number;
+
+    .line {
+        counter-increment: line-number;
+    }
+
+    .line::before {
+        display: inline-block;
+        width: 3em;
+        height: 100%;
+        content: counter(line-number);
+        padding-right: 1rem;
+        opacity: 0.4;
+        text-align: right;
+    }
+}
