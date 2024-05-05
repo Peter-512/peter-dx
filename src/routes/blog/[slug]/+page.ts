@@ -9,7 +9,7 @@ export const load: PageLoad = async ({ params }) => {
 		const blogPost = await import(`../../../blog/${slug}.md`);
 		return {
 			content: blogPost.default,
-			metadata: blogPost.metadata as BlogPost
+			metadata: { ...blogPost.metadata, slug } satisfies BlogPost
 		};
 	} catch (e) {
 		error(404, `Could not find ${slug}`);
