@@ -23,7 +23,7 @@ const config = {
 				highlighter: async (code, lang = 'text') => {
 					const highlighter = await getHighlighter({
 						theme: 'ayu-dark',
-						langs: ['python']
+						langs: ['python', 'typescript']
 					});
 					await highlighter.loadTheme('ayu-dark');
 					const html = escapeSvelte(
