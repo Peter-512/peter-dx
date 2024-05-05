@@ -6,7 +6,6 @@ tags:
   - 'autoencoder'
 description: 'just for testing'
 picture: '/quantum-autoencoder/reconstructed-images.png'
-slug: 'test-post'
 ---
 
 <script context="module">
