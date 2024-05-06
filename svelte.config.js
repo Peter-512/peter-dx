@@ -1,6 +1,5 @@
 import rehypeFigure from '@microflash/rehype-figure';
 import adapter from '@sveltejs/adapter-vercel';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { escapeSvelte, mdsvex } from 'mdsvex';
 import rehypeKatexSvelte from 'rehype-katex-svelte';
 import rehypeSlug from 'rehype-slug';
@@ -14,7 +13,6 @@ const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
 	preprocess: [
-		vitePreprocess(),
 		mdsvex({
 			remarkPlugins: [remarkMath, [remarkToc, { tight: true }], remarkUnwrapImages],
 			rehypePlugins: [rehypeKatexSvelte, rehypeSlug, rehypeFigure],
