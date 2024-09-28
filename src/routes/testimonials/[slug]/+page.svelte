@@ -9,7 +9,11 @@
 	import Ol from '$lib/components/markdown/Ol.svelte';
 	import Li from '$lib/components/markdown/Li.svelte';
 
-	export let data: PageData;
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
 	const { testimonialDetails } = data;
 </script>
 

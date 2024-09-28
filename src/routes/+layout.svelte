@@ -7,12 +7,13 @@
 	import { shadcnSvelteLogo, svelteLogo, supabaseLogo, vercelLogo } from '$lib/logos';
 	import HoverCard from './HoverCard.svelte';
 	import { Button } from '$lib/components/ui/button/index';
+	let { children } = $props();
 
 	const { transition } = setupViewTransition();
-	$: isHome = $page.route.id === '/';
-	$: isBlog = $page.route.id === '/blog';
-	$: isProjects = $page.route.id === '/projects';
-	$: isExperience = $page.route.id === '/experience';
+	let isHome = $derived($page.route.id === '/');
+	let isBlog = $derived($page.route.id === '/blog');
+	let isProjects = $derived($page.route.id === '/projects');
+	let isExperience = $derived($page.route.id === '/experience');
 </script>
 
 <div class='m-5 mx-auto'>
@@ -63,7 +64,7 @@
 		</div>
 	</header>
 	<main class='mx-5'>
-		<slot />
+		{@render children?.()}
 	</main>
 	<footer
 		class='mx-5 mt-16 flex flex-col items-center gap-4 text-center'
