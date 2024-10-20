@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import { Skeleton } from '$lib/components/ui/skeleton';
 	import type { PageData } from './$types';
@@ -21,28 +21,28 @@
 	<title>Letter of recommendation by {testimonialDetails.name}</title>
 </svelte:head>
 
-<section class='max-w-3xl m-auto'>
+<section class="m-auto max-w-3xl">
 	<Testimonial {...testimonialDetails} />
 
-	<Separator class='my-5' decorative />
+	<Separator class="my-5" decorative />
 </section>
 
-<section class='whitespace-break-spaces max-w-3xl m-auto'>
+<section class="m-auto max-w-3xl whitespace-break-spaces">
 	{#await data.streamed.content}
-		<div class='gap-4'>
-			<Skeleton class='h-5 w-24' />
-			<Skeleton class='h-10 w-full' />
-			<Skeleton class='h-20 w-full' />
-			<Skeleton class='h-20 w-full' />
-			<Skeleton class='h-20 w-full' />
-			<Skeleton class='h-10 w-[300px]' />
-			<Skeleton class='h-10 w-[100px]' />
+		<div class="gap-4">
+			<Skeleton class="h-5 w-24" />
+			<Skeleton class="h-10 w-full" />
+			<Skeleton class="h-20 w-full" />
+			<Skeleton class="h-20 w-full" />
+			<Skeleton class="h-20 w-full" />
+			<Skeleton class="h-10 w-[300px]" />
+			<Skeleton class="h-10 w-[100px]" />
 		</div>
 	{:then { content }}
 		<SvelteMarkdown
 			renderers={{ paragraph: P, link: A, list: Ol, listitem: Li }}
 			source={content} />
 	{:catch error}
-		<p class='text-red-500'>{error.message}</p>
+		<p class="text-red-500">{error.message}</p>
 	{/await}
 </section>

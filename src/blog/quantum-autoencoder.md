@@ -2,10 +2,10 @@
 title: 'Quantum Autoencoder'
 date: '2023-03-25'
 tags:
-  - 'quantum'
-  - 'qiskit'
-  - 'autoencoder'
-  - 'image-compression'
+    - 'quantum'
+    - 'qiskit'
+    - 'autoencoder'
+    - 'image-compression'
 description: 'Compressing images using qubits'
 picture: '/quantum-autoencoder/reconstructed-images.png'
 published: true
@@ -57,19 +57,19 @@ autoencoder are evident, being the encoder and decoder parts as well as the diff
 
 The quantum autoencoder consists of the following parts:
 
-- **Latent space**: The latent space is a quantum state that is produced by the encoder. It is a lower-dimensional
-  representation of the input data, similar to the latent space in classical autoencoders. It maps one-to-one to the
-  smallest layer of the classical autoencoder.
-- **Trash space**: The trash space is a quantum state that gets used up by the encoder, by performing the so-called SWAP
-  test. We will cover that later in more detail. The input state of the autoencoder consists of the trash space and the
-  latent space.
-- **Reference space**: The reference space is a quantum state that is used by the decoder to reconstruct the original
-  input data. It is important to already have the reference space, along with the auxiliary qubit and the classical
-  register included in the circuit even though it is not used by the encoder, but only by the decoder. This is because
-  the encoder and decoder are trained together, and the reference space is part of the quantum state that the encoder
-  produces. The reference space is also a vital piece to the SWAP test.
-- **Auxiliary qubit**: The auxiliary qubit is the final piece of the puzzle to perform the SWAP test.
-- **Classical register**: The classical register is used to measure the auxiliary qubit.
+-   **Latent space**: The latent space is a quantum state that is produced by the encoder. It is a lower-dimensional
+    representation of the input data, similar to the latent space in classical autoencoders. It maps one-to-one to the
+    smallest layer of the classical autoencoder.
+-   **Trash space**: The trash space is a quantum state that gets used up by the encoder, by performing the so-called SWAP
+    test. We will cover that later in more detail. The input state of the autoencoder consists of the trash space and the
+    latent space.
+-   **Reference space**: The reference space is a quantum state that is used by the decoder to reconstruct the original
+    input data. It is important to already have the reference space, along with the auxiliary qubit and the classical
+    register included in the circuit even though it is not used by the encoder, but only by the decoder. This is because
+    the encoder and decoder are trained together, and the reference space is part of the quantum state that the encoder
+    produces. The reference space is also a vital piece to the SWAP test.
+-   **Auxiliary qubit**: The auxiliary qubit is the final piece of the puzzle to perform the SWAP test.
+-   **Classical register**: The classical register is used to measure the auxiliary qubit.
 
 ### SWAP Test
 
@@ -175,7 +175,7 @@ reconstruct the original input data from this quantum state.
 
 All that is left, is to define an interpretation function, a Sampler, an optimizer and a cost function.
 
-```python 
+```python
 def identity_interpret(x):
     return x
 ```
@@ -245,7 +245,7 @@ def calculate_fidelity(sv1: np.ndarray, sv2: np.ndarray) -> float:
 Calculating the average fidelity of the reconstructed images will result in the following:
 
 | Digit | Fidelity |
-|-------|----------|
+| ----- | -------- |
 | 0     | 0.013049 |
 | 1     | 0.039238 |
 | 2     | 0.014199 |
@@ -297,12 +297,12 @@ machine learning. We unfortunately were not able to test this on a real quantum 
 with the appropriate error mitigation techniques, the results would have been much better. If you would like to read
 more about this topic, my co-authors published articles to their own use cases.
 
-- Paul-Cristian
-  Mocanu: [Quantum Reinforcement Learning on the Cart-Pole Problem](https://medium.com/@cristi.mocanu25/quantum-reinforcement-learning-18b5083f80c0)
-- Seifeldin
-  Sabry: [Quantum Neural Networks - Forecasting Apple Stock Prices](https://medium.com/@seifeldin.sabry/quantum-neural-networks-forecasting-apple-stock-1d652a95fecf)
+-   Paul-Cristian
+    Mocanu: [Quantum Reinforcement Learning on the Cart-Pole Problem](https://medium.com/@cristi.mocanu25/quantum-reinforcement-learning-18b5083f80c0)
+-   Seifeldin
+    Sabry: [Quantum Neural Networks - Forecasting Apple Stock Prices](https://medium.com/@seifeldin.sabry/quantum-neural-networks-forecasting-apple-stock-1d652a95fecf)
 
 ## References
 
-- [The Quantum Autoencoder - QiSkit Machine Learning 0.7.2. (n.d.).]( https://qiskit-community.github.io/qiskit-machine-learning/tutorials/12_quantum_autoencoder.html)
-- [Quantum Variational Autoencoder](https://arxiv.org/pdf/1802.05779.pdf)
+-   [The Quantum Autoencoder - QiSkit Machine Learning 0.7.2. (n.d.).](https://qiskit-community.github.io/qiskit-machine-learning/tutorials/12_quantum_autoencoder.html)
+-   [Quantum Variational Autoencoder](https://arxiv.org/pdf/1802.05779.pdf)
