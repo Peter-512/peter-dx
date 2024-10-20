@@ -1,9 +1,9 @@
 ---
 title: 'test post'
 tags:
-  - 'typescript'
-  - 'python'
-  - 'autoencoder'
+    - 'typescript'
+    - 'python'
+    - 'autoencoder'
 description: 'just for testing'
 picture: '/quantum-autoencoder/reconstructed-images.png'
 ---
@@ -26,7 +26,7 @@ print('Hello World')
 ```
 
 ```typescript
-console.log('Hello World')
+console.log('Hello World');
 ```
 
 Testing inline code `console.log('Hello World')`
@@ -68,20 +68,19 @@ Testing blockquote
 
 Testing list
 
-- Item 1
-- Item 2
-- Item 3
-- Item 4
+-   Item 1
+-   Item 2
+-   Item 3
+-   Item 4
 
 Testing table
 
-| Name    | Age | 
-|---------|-----|
+| Name    | Age |
+| ------- | --- |
 | Alice   | 20  |
 | Bob     | 21  |
 | Charlie | 22  |
 
 Testing link [Google](https://www.google.com)
 
-Testing **bold text** and *italic text*.
-
+Testing **bold text** and _italic text_.

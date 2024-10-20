@@ -1,16 +1,14 @@
 <script lang="ts">
-	import { Dialog as DialogPrimitive } from "bits-ui";
-	import { cn } from "$lib/utils";
+	import { Dialog as DialogPrimitive } from 'bits-ui';
+	import { cn } from '$lib/utils';
 
-	type $$Props = DialogPrimitive.TitleProps;
+	type Props = DialogPrimitive.TitleProps;
 
-	let className: $$Props["class"] = undefined;
-	export { className as class };
+	let { class: className = undefined, children, ...rest }: Props = $props();
 </script>
 
 <DialogPrimitive.Title
-	class={cn("text-lg font-semibold leading-none tracking-tight", className)}
-	{...$$restProps}
->
-	<slot />
+	class={cn('text-lg font-semibold leading-none tracking-tight', className)}
+	{...rest}>
+	{@render children?.()}
 </DialogPrimitive.Title>

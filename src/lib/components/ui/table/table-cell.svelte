@@ -1,19 +1,17 @@
 <script lang="ts">
-	import { cn } from "$lib/utils";
-	import type { HTMLTdAttributes } from "svelte/elements";
+	import { cn } from '$lib/utils';
+	import type { HTMLTdAttributes } from 'svelte/elements';
 
-	type $$Props = HTMLTdAttributes;
+	type Props = HTMLTdAttributes;
 
-	let className: $$Props["class"] = undefined;
-	export { className as class };
+	let { class: className = undefined, children, ...rest }: Props = $props();
 </script>
 
 <td
 	class={cn(
-		"p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+		'p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]',
 		className
 	)}
-	{...$$restProps}
->
-	<slot />
+	{...rest}>
+	{@render children?.()}
 </td>

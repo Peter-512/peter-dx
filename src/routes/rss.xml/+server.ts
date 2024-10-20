@@ -1,5 +1,5 @@
 import { dev } from '$app/environment';
-import type { BlogPost } from '$lib/types/types';
+import type { BlogPostMetadata } from '$lib/types/types';
 
 export const prerender = true;
 
@@ -7,7 +7,7 @@ const url = dev ? 'http://localhost:5173' : 'https://peter-dx.vercel.app';
 
 export async function GET({ fetch }) {
 	const response = await fetch('api/blog');
-	const posts: BlogPost[] = await response.json();
+	const posts: BlogPostMetadata[] = await response.json();
 
 	const headers = { 'Content-Type': 'application/xml' };
 

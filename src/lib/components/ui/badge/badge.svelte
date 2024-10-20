@@ -1,18 +1,28 @@
 <script lang="ts">
-	import { cn } from "$lib/utils";
-	import { badgeVariants, type Variant } from ".";
+	import { cn } from '$lib/utils';
+	import type { Snippet } from 'svelte';
+	import { badgeVariants, type Variant } from '.';
+	import type { HTMLAnchorAttributes, HTMLAttributes } from 'svelte/elements';
 
-	let className: string | undefined | null = undefined;
-	export let href: string | undefined = undefined;
-	export let variant: Variant = "default";
-	export { className as class };
+	type Props = HTMLAnchorAttributes &
+		HTMLAttributes<HTMLSpanElement> & {
+			variant?: Variant;
+			children?: Snippet;
+		};
+
+	let {
+		class: className = undefined,
+		href = undefined,
+		variant = 'default',
+		children,
+		...rest
+	}: Props = $props();
 </script>
 
 <svelte:element
-	this={href ? "a" : "span"}
+	this={href ? 'a' : 'span'}
 	{href}
 	class={cn(badgeVariants({ variant, className }))}
-	{...$$restProps}
->
-	<slot />
+	{...rest}>
+	{@render children?.()}
 </svelte:element>

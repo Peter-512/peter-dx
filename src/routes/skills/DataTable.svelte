@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { run } from 'svelte/legacy';
+
 	import { createTable, Subscribe, Render } from 'svelte-headless-table';
 	import {
 		addSortBy,
@@ -16,7 +18,11 @@
 	import { Input } from '$lib/components/ui/input';
 	import type { Skill } from '$lib/types/types';
 
-	export let skills: Skill[];
+	interface Props {
+		skills: Skill[];
+	}
+
+	let { skills }: Props = $props();
 
 	const table = createTable(readable(skills), {
 		sort: addSortBy({
@@ -84,11 +90,13 @@
 
 	const { hiddenColumnIds } = pluginStates.hide;
 	const ids = flatColumns.map((c) => c.id);
-	let hideForId = Object.fromEntries(ids.map((id) => [id, true]));
+	let hideForId = $state(Object.fromEntries(ids.map((id) => [id, true])));
 
-	$: $hiddenColumnIds = Object.entries(hideForId)
-		.filter(([, hide]) => !hide)
-		.map(([id]) => id);
+	run(() => {
+		$hiddenColumnIds = Object.entries(hideForId)
+			.filter(([, hide]) => !hide)
+			.map(([id]) => id);
+	});
 
 	const { hasNextPage, hasPreviousPage, pageIndex } = pluginStates.page;
 	const { filterValue } = pluginStates.filter;

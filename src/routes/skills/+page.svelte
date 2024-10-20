@@ -1,7 +1,7 @@
 <script>
 	import DataTable from './DataTable.svelte';
 
-	export let data;
+	let { data } = $props();
 	const { skills } = data;
 </script>
 
@@ -9,9 +9,8 @@
 	<title>Skills</title>
 </svelte:head>
 
-<section class='max-w-3xl m-auto'>
-
-	<h1 class='my-5 text-2xl'>skills i picked up along the way 🤓</h1>
+<section class="m-auto max-w-3xl">
+	<h1 class="my-5 text-2xl">skills i picked up along the way 🤓</h1>
 
 	<DataTable {skills} />
 </section>

@@ -1,16 +1,12 @@
 <script lang="ts">
-	import { cn } from "$lib/utils";
-	import type { HTMLAttributes } from "svelte/elements";
+	import { cn } from '$lib/utils';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	type $$Props = HTMLAttributes<HTMLTableCaptionElement>;
+	type Props = HTMLAttributes<HTMLTableCaptionElement>;
 
-	let className: $$Props["class"] = undefined;
-	export { className as class };
+	let { class: className = undefined, children, ...rest }: Props = $props();
 </script>
 
-<caption
-	class={cn("mt-4 text-sm text-muted-foreground", className)}
-	{...$$restProps}
->
-	<slot />
+<caption class={cn('mt-4 text-sm text-muted-foreground', className)} {...rest}>
+	{@render children?.()}
 </caption>

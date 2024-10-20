@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	import {
 		Timeline,
 		TimelineItem,
@@ -28,7 +28,7 @@
 		{
 			title: 'Software Engineer Intern',
 			company: 'DataCamp',
-			detail: 'Part of the Content Platform team, enabling multiple technologies on the DataCamp learning platform for Instructors to create courses for such as Python, R, Docker, Julia, etc., creating new exercise types to enable more engaging content as well as maintaining the custom editor for all of DataCamp\'s courses.',
+			detail: "Part of the Content Platform team, enabling multiple technologies on the DataCamp learning platform for Instructors to create courses for such as Python, R, Docker, Julia, etc., creating new exercise types to enable more engaging content as well as maintaining the custom editor for all of DataCamp's courses.",
 			start: new Date(2022, 7),
 			end: new Date(2022, 9)
 		},
@@ -41,29 +41,36 @@
 		}
 	];
 </script>
-<section class='m-auto max-w-6xl'>
-	<div class='max-w-3xl m-auto'>
-		<h1 class='text-2xl mb-4'>places i worked at 💼</h1>
+
+<section class="m-auto max-w-6xl">
+	<div class="m-auto max-w-3xl">
+		<h1 class="mb-4 text-2xl">places i worked at 💼</h1>
 	</div>
-	<Timeline position='alternate' style='padding: 0'>
+	<Timeline position="alternate" style="padding: 0">
 		{#each jobs as job}
 			<TimelineItem>
-				<TimelineOppositeContent style='margin: 8px 0' slot='opposite-content'>
-					<p class='text-muted-foreground mb-4'>{job.company}</p>
-					<p class='text-muted-foreground'>{format(job.start, 'MMM yyyy')}
-						- {format(job.end, 'MMM yyyy')}</p>
-					<p class='text-muted-foreground'>{formatDuration(intervalToDuration({
-						start: job.start,
-						end: job.end
-					}))}</p>
+				<TimelineOppositeContent style="margin: 8px 0" slot="opposite-content">
+					<p class="mb-4 text-muted-foreground">{job.company}</p>
+					<p class="text-muted-foreground">
+						{format(job.start, 'MMM yyyy')}
+						- {format(job.end, 'MMM yyyy')}
+					</p>
+					<p class="text-muted-foreground">
+						{formatDuration(
+							intervalToDuration({
+								start: job.start,
+								end: job.end
+							})
+						)}
+					</p>
 				</TimelineOppositeContent>
-				<TimelineSeparator style='margin: 0 16px'>
-					<TimelineDot style='background-color: yellow' />
+				<TimelineSeparator style="margin: 0 16px">
+					<TimelineDot style="background-color: yellow" />
 					<TimelineConnector />
 				</TimelineSeparator>
-				<TimelineContent style='margin: 8px 0'>
-					<h3 class='font-bold text-xl mb-4'>{job.title}</h3>
-					<p class='mb-12'>{job.detail}</p>
+				<TimelineContent style="margin: 8px 0">
+					<h3 class="mb-4 text-xl font-bold">{job.title}</h3>
+					<p class="mb-12">{job.detail}</p>
 				</TimelineContent>
 			</TimelineItem>
 		{/each}

@@ -7,7 +7,7 @@ import rehypeSlug from 'rehype-slug';
 import remarkMath from 'remark-math';
 import remarkToc from 'remark-toc';
 import remarkUnwrapImages from 'remark-unwrap-images';
-import { getHighlighter } from 'shiki';
+import { getSingletonHighlighter } from 'shiki';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -21,7 +21,7 @@ const config = {
 			extensions: ['.md'],
 			highlight: {
 				highlighter: async (code, lang = 'text') => {
-					const highlighter = await getHighlighter({
+					const highlighter = await getSingletonHighlighter({
 						theme: 'ayu-dark',
 						langs: ['python', 'typescript']
 					});
