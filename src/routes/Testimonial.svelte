@@ -53,14 +53,14 @@
 					<Avatar.Image alt={name} src={image_url} />
 					<Avatar.Fallback>{fallback}</Avatar.Fallback>
 				</Avatar.Root>
-				<div class="space-y-2">
+				<div class="min-w-0 flex-1 space-y-2">
 					<Card.Title>{name}</Card.Title>
 					{#if email}
-						<small class="flex items-center text-muted-foreground">
+						<small class="flex items-center whitespace-nowrap text-muted-foreground">
 							<Mail class="me-2" size={20} />
 							<Button
 								variant="link"
-								class="px-0 text-muted-foreground"
+								class="block max-w-full justify-normal truncate px-0 text-muted-foreground"
 								href={`mailto:${email}`}>
 								{email}
 							</Button>
