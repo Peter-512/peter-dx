@@ -126,7 +126,7 @@
 
 	<Separator class="my-5" decorative />
 
-	<h1 class="text-center text-2xl">what others say about me 🤩</h1>
+	<h2 class="text-center text-2xl">what others say about me 🤩</h2>
 
 	<div class="flex flex-col gap-4">
 		{#each testimonials as testimonial, index (index)}
