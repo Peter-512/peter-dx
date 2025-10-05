@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import HoverCard from './HoverCard.svelte';
 	import * as Dialog from '$lib/components/ui/dialog';
@@ -64,38 +64,38 @@
 	<title>Peter Buschenreiter</title>
 	<meta
 		content="This is my personal portfolio featuring various projects I've worked on, some testimonials from former colleagues and my skills."
-		name='description' />
-	<meta content={profile} property='og:image' />
-	<meta content="hi, i'm peter 👋" property='og:title' />
-	<meta content='come check out my portfolio!' property='og:description' />
-	<meta content='https://peter-dx.vercel.app/' property='og:url' />
-	<meta content='summary' property='twitter:card' />
+		name="description" />
+	<meta content={profile} property="og:image" />
+	<meta content="hi, i'm peter 👋" property="og:title" />
+	<meta content="come check out my portfolio!" property="og:description" />
+	<meta content="https://peter-dx.vercel.app/" property="og:url" />
+	<meta content="summary" property="twitter:card" />
 </svelte:head>
 
-<div class='m-auto flex max-w-3xl flex-col gap-3'>
-	<h1 class='text-2xl'>hi, i'm peter 👋</h1>
-	<p class='text-gray-400'>
-		I am a highly motivated and energetic person, always eager to learn new skills. I work for DataCamp, building
-		the platform that helps democratizing data and AI skills.
+<div class="m-auto flex max-w-3xl flex-col gap-3">
+	<h1 class="text-2xl">hi, i'm peter 👋</h1>
+	<p class="text-gray-400">
+		I am a highly motivated and energetic person, always eager to learn new skills. I work for
+		DataCamp, building the platform that helps democratizing data and AI skills.
 	</p>
 
-	<div class='my-5 grid grid-cols-2 gap-4 md:grid-cols-4'>
+	<div class="my-5 grid grid-cols-2 gap-4 md:grid-cols-4">
 		{#each imageGroups as images}
-			<div class='grid gap-4'>
+			<div class="grid gap-4">
 				{#each images as image}
 					<Dialog.Root>
-						<Dialog.Trigger class='focus:outline-gray-200'>
-							<div class='h-full overflow-hidden rounded-lg'>
+						<Dialog.Trigger class="focus:outline-gray-200">
+							<div class="h-full overflow-hidden rounded-lg">
 								<enhanced:img
 									alt={image.alt}
-									class='h-full w-full cursor-pointer object-cover transition-all duration-300 ease-in-out hover:scale-110'
+									class="h-full w-full cursor-pointer object-cover transition-all duration-300 ease-in-out hover:scale-110"
 									src={image.src} />
 							</div>
 						</Dialog.Trigger>
 						<Dialog.Content>
 							<enhanced:img
 								alt={image.alt}
-								class='h-full w-full rounded-md object-cover'
+								class="h-full w-full rounded-md object-cover"
 								src={image.src} />
 							<Dialog.Footer>
 								<p>
@@ -109,14 +109,14 @@
 		{/each}
 	</div>
 
-	<p class='leading-relaxed text-gray-300'>
+	<p class="leading-relaxed text-gray-300">
 		I spent the beginning of my career working in sales, where I learned how to communicate and
 		put myself in the shoes of my customers.
 		<br />
 		In 2021, I decided to switch careers and started a bachelor in Applied Computer Science at Karel
 		de Grote University College in Antwerp. During that time, I also managed to get two summer internships
 		at
-		<HoverCard githubAccount='datacamp' imageUrl={datacampLogo} text='build data and AI skills'>
+		<HoverCard githubAccount="datacamp" imageUrl={datacampLogo} text="build data and AI skills">
 			DataCamp
 		</HoverCard>
 		as a Software Engineer.
@@ -124,11 +124,11 @@
 		In my free time, I like to climb and play video games.
 	</p>
 
-	<Separator class='my-5' decorative />
+	<Separator class="my-5" decorative />
 
-	<h2 class='text-center text-2xl'>what others say about me 🤩</h2>
+	<h2 class="text-center text-2xl">what others say about me 🤩</h2>
 
-	<div class='flex flex-col gap-4'>
+	<div class="flex flex-col gap-4">
 		{#each testimonials as testimonial, index (index)}
 			<Testimonial placement={index % 2 ? 'left' : 'right'} {...testimonial} />
 		{/each}
