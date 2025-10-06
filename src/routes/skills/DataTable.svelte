@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang='ts'>
 	import { run } from 'svelte/legacy';
 
 	import { createTable, Subscribe, Render } from 'svelte-headless-table';
@@ -105,19 +105,22 @@
 	const hideableCols: HideableCol[] = ['level', 'type', 'sub_type'];
 </script>
 
-<div class="w-full">
-	<div class="mb-4 flex items-center gap-4">
+<div class='w-full'>
+	<div class='mb-4 flex items-center gap-4'>
 		<Input
-			class="max-w-sm"
-			placeholder="Filter skills or level..."
-			type="text"
-			bind:value={$filterValue} />
+			bind:value={$filterValue}
+			class='max-w-sm'
+			placeholder='Filter skills or level...'
+			type='text' />
 
 		<DropdownMenu.Root>
-			<DropdownMenu.Trigger asChild let:builder>
-				<Button variant="outline" class="ml-auto" builders={[builder]}>
-					Columns <ChevronDown class="ml-2 h-4 w-4" />
-				</Button>
+			<DropdownMenu.Trigger>
+				{#snippet child({ props }) }
+					<Button variant='outline' class='ml-auto' {...props}>
+						Columns
+						<ChevronDown class='ml-2 h-4 w-4' />
+					</Button>
+				{/snippet}
 			</DropdownMenu.Trigger>
 			<DropdownMenu.Content>
 				{#each flatColumns as col}
@@ -131,7 +134,7 @@
 		</DropdownMenu.Root>
 	</div>
 
-	<div class="rounded-md border">
+	<div class='rounded-md border'>
 		<Table.Root {...$tableAttrs}>
 			<Table.Header>
 				{#each $headerRows as headerRow}
@@ -145,7 +148,7 @@
 									let:props>
 									<Table.Head {...attrs}>
 										{#if cell.id === 'level' || cell.id === 'name'}
-											<Button variant="ghost" on:click={props.sort.toggle}>
+											<Button variant='ghost' on:click={props.sort.toggle}>
 												<Render of={cell.render()} />
 												<CaretSort
 													class={cn(
@@ -173,11 +176,11 @@
 								<Subscribe attrs={cell.attrs()} let:attrs>
 									<Table.Cell {...attrs}>
 										{#if cell.id === 'sub_type' && cell.value === null}
-											<div class="capitalize text-gray-500">
+											<div class='capitalize text-gray-500'>
 												<Render of={cell.render()} />
 											</div>
 										{:else}
-											<div class="capitalize">
+											<div class='capitalize'>
 												<Render of={cell.render()} />
 											</div>
 										{/if}
@@ -191,19 +194,21 @@
 		</Table.Root>
 	</div>
 
-	<div class="flex items-center justify-end space-x-2 py-4">
-		<div class="flex-1 text-sm text-muted-foreground">
+	<div class='flex items-center justify-end space-x-2 py-4'>
+		<div class='flex-1 text-sm text-muted-foreground'>
 			{$rows.length} row(s) found
 		</div>
 		<Button
-			variant="outline"
-			size="sm"
+			disabled={!$hasPreviousPage}
 			on:click={() => ($pageIndex = $pageIndex - 1)}
-			disabled={!$hasPreviousPage}>Previous</Button>
+			size='sm'
+			variant='outline'>Previous
+		</Button>
 		<Button
-			variant="outline"
-			size="sm"
 			disabled={!$hasNextPage}
-			on:click={() => ($pageIndex = $pageIndex + 1)}>Next</Button>
+			on:click={() => ($pageIndex = $pageIndex + 1)}
+			size='sm'
+			variant='outline'>Next
+		</Button>
 	</div>
 </div>
