@@ -1,7 +1,7 @@
 <script>
 	import '../app.css';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import { Github, Linkedin } from 'lucide-svelte';
 	import { shadcnSvelteLogo, svelteLogo, supabaseLogo, vercelLogo } from '$lib/logos';
@@ -11,17 +11,17 @@
 	let { children } = $props();
 
 	const { transition } = setupViewTransition();
-	let isHome = $derived($page.route.id === '/');
-	let isBlog = $derived($page.route.id === '/blog');
-	let isProjects = $derived($page.route.id === '/projects');
-	let isExperience = $derived($page.route.id === '/experience');
+	let isHome = $derived(page.route.id === '/');
+	let isBlog = $derived(page.route.id === '/blog');
+	let isProjects = $derived(page.route.id === '/projects');
+	let isExperience = $derived(page.route.id === '/experience');
 </script>
 
 <div class='m-5 mx-auto'>
 	<header class='m-auto mb-16 flex max-w-3xl' use:transition={'header'}>
 		<nav class='ms-5 flex items-center'>
 			<Button
-				aria-current={$page.url.pathname === '/' ? 'page' : undefined}
+				aria-current={page.url.pathname === '/' ? 'page' : undefined}
 				class={`relative transition-colors duration-300 hover:text-white hover:no-underline ${!isHome && 'text-gray-400'}`}
 				href='/'
 				variant='link'>
@@ -29,7 +29,7 @@
 			</Button>
 			<Separator decorative orientation='vertical' />
 			<Button
-				aria-current={$page.url.pathname === '/blog' ? 'page' : undefined}
+				aria-current={page.url.pathname === '/blog' ? 'page' : undefined}
 				class={`relative transition-colors duration-300 hover:text-white hover:no-underline ${!isBlog && 'text-gray-400'}`}
 				href='/blog'
 				variant='link'>
@@ -37,7 +37,7 @@
 			</Button>
 			<Separator decorative orientation='vertical' />
 			<Button
-				aria-current={$page.url.pathname === '/projects' ? 'page' : undefined}
+				aria-current={page.url.pathname === '/projects' ? 'page' : undefined}
 				class={`relative transition-colors duration-300 hover:text-white hover:no-underline ${!isProjects && 'text-gray-400'}`}
 				href='/projects'
 				variant='link'>
@@ -45,7 +45,7 @@
 			</Button>
 			<Separator decorative orientation='vertical' />
 			<Button
-				aria-current={$page.url.pathname === '/experience' ? 'page' : undefined}
+				aria-current={page.url.pathname === '/experience' ? 'page' : undefined}
 				class={`relative transition-colors duration-300 hover:text-white hover:no-underline ${!isExperience && 'text-gray-400'}`}
 				href='/experience'
 				variant='link'>
