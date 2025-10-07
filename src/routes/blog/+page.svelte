@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang='ts'>
 	import { run } from 'svelte/legacy';
 
 	import profile from '$lib/images/profile-pic.png';
@@ -10,7 +10,7 @@
 	import type { BlogPostMetadata } from '$lib/types/types';
 	import { slide, fly } from 'svelte/transition';
 	import { pushState } from '$app/navigation';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import type { PageData } from './$types';
 
 	const formatter = new Intl.DateTimeFormat('en', {
@@ -24,15 +24,15 @@
 		activeTags?: string[];
 	}
 
-	let { data, activeTags = $bindable($page.state.activeTags || []) }: Props = $props();
+	let { data, activeTags = $bindable(page.state.activeTags || []) }: Props = $props();
 	run(() => {
 		if (
-			$page.state.activeTags !== undefined &&
-			activeTags.length !== $page.state.activeTags?.length
+			page.state.activeTags !== undefined &&
+			activeTags.length !== page.state.activeTags?.length
 		) {
-			activeTags = $page.state.activeTags;
+			activeTags = page.state.activeTags;
 		}
-		if ($page.state.activeTags === undefined) {
+		if (page.state.activeTags === undefined) {
 			activeTags = [];
 		}
 	});
@@ -40,8 +40,8 @@
 	let filteredPosts = $derived(
 		activeTags.length > 0
 			? (data.posts.filter(({ tags }) =>
-					activeTags.every((tag) => tags.includes(tag))
-				) as BlogPostMetadata[])
+				activeTags.every((tag) => tags.includes(tag))
+			) as BlogPostMetadata[])
 			: data.posts
 	);
 
@@ -69,42 +69,42 @@
 
 <svelte:head>
 	<title>Blog</title>
-	<meta content="A collection of blog posts written by me." name="description" />
-	<meta content="Blog" property="og:title" />
-	<meta content="A collection of blog posts written by me." property="og:description" />
-	<meta content="https://peter-dx.vercel.app/blog" property="og:url" />
-	<meta content={profile} property="og:image" />
-	<meta content="summary_large_image" name="twitter:card" />
+	<meta content='A collection of blog posts written by me.' name='description' />
+	<meta content='Blog' property='og:title' />
+	<meta content='A collection of blog posts written by me.' property='og:description' />
+	<meta content='https://peter-dx.vercel.app/blog' property='og:url' />
+	<meta content={profile} property='og:image' />
+	<meta content='summary_large_image' name='twitter:card' />
 </svelte:head>
 
-<div class="m-auto flex max-w-3xl flex-col gap-3">
-	<div class="flex justify-between">
-		<h1 class="mb-4 text-2xl">stuff i wrote ✍🏻</h1>
-		<Button href="rss.xml" target="_blank" variant="secondary">
+<div class='m-auto flex max-w-3xl flex-col gap-3'>
+	<div class='flex justify-between'>
+		<h1 class='mb-4 text-2xl'>stuff i wrote ✍🏻</h1>
+		<Button href='rss.xml' target='_blank' variant='secondary'>
 			RSS
-			<Rss class="ml-2" />
+			<Rss class='ml-2' />
 		</Button>
 	</div>
 	<ul>
 		{#if activeTags.length > 0}
-			<div transition:slide class="mb-2 space-x-2">
+			<div transition:slide class='mb-2 space-x-2'>
 				filtered posts by
 				{#each activeTags as tag}
 					<TagBadge
-						size="sm"
+						size='sm'
 						{tag}
 						onClick={() => unselectTag(tag)}
 						transitionKey={`blog-filter-${tag}`}>
-						<span class="text-red-500">X</span>
+						<span class='text-red-500'>X</span>
 					</TagBadge>
 				{/each}
 				{#if activeTags.length > 1}
 					<span>
 						<button
 							transition:fly
-							class="rounded-full bg-destructive px-3 py-1 text-xs hover:bg-destructive/80"
+							class='rounded-full bg-destructive px-3 py-1 text-xs hover:bg-destructive/80'
 							onclick={unselectAllTags}
-							>clear all
+						>clear all
 						</button>
 					</span>
 				{/if}
@@ -112,28 +112,28 @@
 		{/if}
 		{#each filteredPosts as { title, description, date, slug, tags }}
 			<li transition:slide>
-				<div class="flex flex-col">
-					<div class="flex justify-between">
+				<div class='flex flex-col'>
+					<div class='flex justify-between'>
 						<span use:transition={`blog-title-${slug}`}>
-							<Button class="px-0 text-lg" variant="link" href="/blog/{slug}"
-								>{title}</Button>
+							<Button class='px-0 text-lg' variant='link' href='/blog/{slug}'
+							>{title}</Button>
 						</span>
-						<small use:transition={`blog-date-${slug}`} class="text-sm"
-							>{formatter.format(new Date(date))}</small>
+						<small use:transition={`blog-date-${slug}`} class='text-sm'
+						>{formatter.format(new Date(date))}</small>
 					</div>
-					<p use:transition={`blog-description-${slug}`} class="text-muted-foreground">
+					<p use:transition={`blog-description-${slug}`} class='text-muted-foreground'>
 						{description}
 					</p>
-					<div class="my-4 flex flex-wrap gap-2">
+					<div class='my-4 flex flex-wrap gap-2'>
 						{#each tags as tag}
 							<TagBadge
-								size="sm"
+								size='sm'
 								{tag}
 								transitionKey={slug}
 								onClick={() => selectTag(tag)} />
 						{/each}
 					</div>
-					<Separator class="mb-6 mt-2" />
+					<Separator class='mb-6 mt-2' />
 				</div>
 			</li>
 		{:else}

@@ -4,6 +4,12 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@source inline("text-{amber,blue,cyan,lime,emerald,fuchsia,gray,green,indigo,neutral,orange,pink,purple,red,rose,sky,stone,teal,violet,yellow,zinc}-800");
+
+@source inline("bg-{amber,blue,cyan,lime,emerald,fuchsia,gray,green,indigo,neutral,orange,pink,purple,red,rose,sky,stone,teal,violet,yellow,zinc}-200");
+
+@source inline("hover:bg-{amber,blue,cyan,lime,emerald,fuchsia,gray,green,indigo,neutral,orange,pink,purple,red,rose,sky,stone,teal,violet,yellow,zinc}-200/80");
+
 @layer base {
     *,
     ::after,

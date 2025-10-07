@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang='ts'>
 	import * as Card from '$lib/components/ui/card';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { Button } from '$lib/components/ui/button';
@@ -6,7 +6,7 @@
 	import { CalendarDays, Mail, Link2, RotateCw } from 'lucide-svelte';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import { format } from 'date-fns';
-	import { navigating } from '$app/stores';
+	import { navigating } from '$app/state';
 
 	const { transition } = setupViewTransition();
 
@@ -48,19 +48,19 @@
 <section class:self-end={isRight} use:transition={`card-${slug}`}>
 	<Card.Root class={`bg-black ${isFull ? '' : 'md:max-w-md'}`}>
 		<Card.Header>
-			<div class="flex items-center gap-4">
+			<div class='flex items-center gap-4'>
 				<Avatar.Root>
 					<Avatar.Image alt={name} src={image_url} />
 					<Avatar.Fallback>{fallback}</Avatar.Fallback>
 				</Avatar.Root>
-				<div class="min-w-0 flex-1 space-y-2">
+				<div class='min-w-0 flex-1 space-y-2'>
 					<Card.Title>{name}</Card.Title>
 					{#if email}
-						<small class="flex items-center whitespace-nowrap text-muted-foreground">
-							<Mail class="me-2" size={20} />
+						<small class='flex items-center whitespace-nowrap text-muted-foreground'>
+							<Mail class='me-2' size={20} />
 							<Button
-								variant="link"
-								class="block max-w-full justify-normal truncate px-0 text-muted-foreground"
+								variant='link'
+								class='block max-w-full justify-normal truncate px-0 text-muted-foreground'
 								href={`mailto:${email}`}>
 								{email}
 							</Button>
@@ -68,15 +68,15 @@
 					{/if}
 				</div>
 				{#if company_logo_url}
-					<img class="ms-auto" src={company_logo_url} alt="Company logo" />
+					<img class='ms-auto' src={company_logo_url} alt='Company logo' />
 				{:else}
 					<Button
-						class="ms-auto rounded-full"
-						variant="secondary"
+						class='ms-auto rounded-full'
+						variant='secondary'
 						href={`testimonials/${slug}`}>
-						<span class="sr-only">Testimonial from {name}</span>
-						{#if $navigating?.to?.params?.slug === slug}
-							<RotateCw class="animate-spin" />
+						<span class='sr-only'>Testimonial from {name}</span>
+						{#if navigating?.to?.params?.slug === slug}
+							<RotateCw class='animate-spin' />
 						{:else}
 							<Link2 />
 						{/if}
@@ -89,17 +89,17 @@
 		</Card.Header>
 
 		<Card.Content>
-			<blockquote class="text-balance border-l-2 pl-6 italic">
-				<Quote class="relative bottom-2 inline-block" tabindex="-1" />
+			<blockquote class='text-balance border-l-2 pl-6 italic'>
+				<Quote class='relative bottom-2 inline-block' tabindex={-1} />
 				{quote}
-				<Quote class="relative bottom-2 inline-block" tabindex="-1" />
+				<Quote class='relative bottom-2 inline-block' tabindex={-1} />
 			</blockquote>
 		</Card.Content>
 
 		{#if company && received_at}
-			<Card.Footer class="flex justify-between text-muted-foreground">
-				<small class="flex items-center">
-					<CalendarDays class="me-2 place-self-center" size={20} />
+			<Card.Footer class='flex justify-between text-muted-foreground'>
+				<small class='flex items-center'>
+					<CalendarDays class='me-2 place-self-center' size={20} />
 					{format(new Date(received_at), 'MMMM, do yyyy')}
 				</small>
 				<small>{company}</small>
