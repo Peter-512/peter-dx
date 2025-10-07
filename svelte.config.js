@@ -11,6 +11,15 @@ import { getSingletonHighlighter } from 'shiki';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+	kit: {
+		experimental: { remoteFunctions: true },
+		adapter: adapter({ runtime: 'edge' })
+	},
+	compilerOptions: {
+		experimental: {
+			async: true
+		}
+	},
 	preprocess: [
 		vitePreprocess(),
 		mdsvex({
@@ -33,19 +42,8 @@ const config = {
 		})
 	],
 	extensions: ['.svelte', '.md'],
-
 	vitePlugin: {
 		inspector: true
-	},
-
-	kit: {
-		experimental: { remoteFunctions: true },
-		adapter: adapter({ runtime: 'edge' })
-	},
-	compilerOptions: {
-		experimental: {
-			async: true
-		}
 	}
 };
 
