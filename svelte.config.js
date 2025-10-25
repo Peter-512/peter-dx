@@ -4,9 +4,9 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { escapeSvelte, mdsvex } from 'mdsvex';
 import rehypeKatexSvelte from 'rehype-katex-svelte';
 import rehypeSlug from 'rehype-slug';
+import rehypeUnwrapImages from 'rehype-unwrap-images';
 import remarkMath from 'remark-math';
 import remarkToc from 'remark-toc';
-import remarkUnwrapImages from 'remark-unwrap-images';
 import { getSingletonHighlighter } from 'shiki';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -23,8 +23,8 @@ const config = {
 	preprocess: [
 		vitePreprocess(),
 		mdsvex({
-			remarkPlugins: [remarkMath, [remarkToc, { tight: true }], remarkUnwrapImages],
-			rehypePlugins: [rehypeKatexSvelte, rehypeSlug, rehypeFigure],
+			remarkPlugins: [remarkMath, [remarkToc, { tight: true }]],
+			rehypePlugins: [rehypeKatexSvelte, rehypeSlug, rehypeFigure, rehypeUnwrapImages],
 			extensions: ['.md'],
 			highlight: {
 				highlighter: async (code, lang = 'text') => {
