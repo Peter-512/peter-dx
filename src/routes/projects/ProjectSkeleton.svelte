@@ -1,39 +1,41 @@
+<script lang='ts'>
+	import { Skeleton } from '$lib/components/ui/skeleton';
+	import * as Card from '$lib/components/ui/card';
+</script>
+
 <div class='w-full'>
-	<div class='mx-auto max-w-5xl'>
-		<div class='h-52 rounded-xl border border-neutral-800 p-5 shadow-2xl'>
-			<div class='animate-pulse h-full'>
-				<!-- Header row: left brand + title, right date -->
-				<div class='flex items-center justify-between gap-4'>
-					<div class='flex items-center gap-4'>
-						<div class='h-8 w-8 rounded-full bg-neutral-800'></div>
-						<div class='h-5 w-[180px] sm:w-[220px] rounded bg-neutral-800'></div>
-					</div>
-					<div class='h-5 w-28 rounded-full bg-neutral-800'></div>
+	<Card.Root>
+		<Card.Header>
+			<div class='flex justify-between'>
+				<Card.Title class='flex gap-2 items-center'>
+					<Skeleton class='h-8 w-8 rounded-full' />
+					<Skeleton class='h-5 w-[180px] sm:w-[220px] rounded' />
+				</Card.Title>
+				<Card.Description>
+					<Skeleton class='h-5 w-28 rounded-full' />
+				</Card.Description>
+			</div>
+		</Card.Header>
+		<Card.Content>
+			<div class='flex'>
+				<div class='flex flex-1 flex-col gap-2'>
+					<Skeleton class='h-4 w-full rounded' />
+					<Skeleton class='h-4 w-[92%] rounded' />
+					<Skeleton class='h-4 w-[85%] rounded' />
 				</div>
-
-				<!-- Body: description + chips on the left, avatar on the right -->
-				<div class='mt-4 flex h-[calc(100%-2.25rem)] items-center gap-6'>
-					<!-- Left content -->
-					<div class='flex-1'>
-						<div class='space-y-2'>
-							<div class='h-4 w-full rounded bg-neutral-800'></div>
-							<div class='h-4 w-[92%] rounded bg-neutral-800'></div>
-							<div class='h-4 w-[85%] rounded bg-neutral-800'></div>
-						</div>
-
-						<div class='mt-4 flex flex-wrap items-center gap-3'>
-							{#each { length: 5 } as _, i}
-								<div class='h-5 w-16 rounded-md bg-neutral-800'></div>
-							{/each}
-						</div>
-					</div>
-
-					<!-- Avatar on the right, aligned with description block -->
-					<div class='flex items-center justify-center'>
-						<div class='h-14 w-14 rounded-full bg-neutral-800'></div>
-					</div>
+				<div class='ms-auto flex flex-shrink flex-col space-y-[-5px] ps-4'>
+					{#each { length: 2 } as _, i}
+						<Skeleton class='h-10 w-10 rounded-full' />
+					{/each}
 				</div>
 			</div>
-		</div>
-	</div>
+		</Card.Content>
+		<Card.Footer>
+			<div class='flex flex-wrap gap-2'>
+				{#each { length: 5 } as _, i}
+					<Skeleton class='h-5 w-16 rounded-md' />
+				{/each}
+			</div>
+		</Card.Footer>
+	</Card.Root>
 </div>
