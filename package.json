@@ -2,6 +2,7 @@
   "name": "peter-dx",
   "version": "0.0.1",
   "private": true,
+  "packageManager": "pnpm@10.18.1",
   "scripts": {
     "dev": "supabase start && vite dev",
     "build": "vite build",
