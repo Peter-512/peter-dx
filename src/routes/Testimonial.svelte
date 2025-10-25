@@ -3,10 +3,11 @@
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { Button } from '$lib/components/ui/button';
 	import { Quote } from 'svelte-radix';
-	import { CalendarDays, Mail, Link2, RotateCw } from 'lucide-svelte';
+	import { CalendarDays, Mail, Link2 } from 'lucide-svelte';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 	import { format } from 'date-fns';
 	import { navigating } from '$app/state';
+	import { Spinner } from '$lib/components/ui/spinner';
 
 	const { transition } = setupViewTransition();
 
@@ -76,7 +77,7 @@
 						href={`testimonials/${slug}`}>
 						<span class='sr-only'>Testimonial from {name}</span>
 						{#if navigating?.to?.params?.slug === slug}
-							<RotateCw class='animate-spin' />
+							<Spinner />
 						{:else}
 							<Link2 />
 						{/if}
