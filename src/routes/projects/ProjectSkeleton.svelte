@@ -11,12 +11,12 @@
 					<Skeleton class='h-8 w-8 rounded-full' />
 					<Skeleton class='h-5 w-[180px] sm:w-[220px] rounded' />
 				</Card.Title>
-				<Card.Description>
+				<Card.Description as='div'>
 					<Skeleton class='h-5 w-28 rounded-full' />
 				</Card.Description>
 			</div>
 		</Card.Header>
-		<Card.Content>
+		<Card.Content as='div'>
 			<div class='flex'>
 				<div class='flex flex-1 flex-col gap-2'>
 					<Skeleton class='h-4 w-full rounded' />
