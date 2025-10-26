@@ -72,7 +72,8 @@ supabase migration new [migration_name]
 ```
 
 to generate a new migration file.
-Alternatively, you can use the [Supabase Studio GUI](https://localhost:54323/) to make changes to the local database and then generate a schema file based on the diff using
+Alternatively, you can use the [Supabase Studio GUI](https://localhost:54323/) to make changes to the local database and
+then generate a schema file based on the diff using
 
 ```bash
 supabase db diff --use-migra -f [migration_name]
@@ -86,7 +87,8 @@ To keep types between the database and the frontend aligned, run
 supabase gen types typescript --local --schema public > src/lib/types/supabase.ts
 ```
 
-which will generate a typescript interface which gets injected when creating the supabase client, making the the queries with it completely typesafe.
+which will generate a typescript interface which gets injected when creating the supabase client, making the the queries
+with it completely typesafe.
 
 ## Testing
 
@@ -94,11 +96,13 @@ Some E2E tests are implemented on [checkly](https://app.checklyhq.com/) that run
 
 ## Debugging
 
-Svelte inspector has been added to the config, so just hit command + shift to enable it and jump directly to the code of the respective components.
+Svelte inspector has been added to the config, so just hit hyper (command + option + control + shift) + S to enable it
+and jump directly to the code of the respective components.
 
 ## Styling and component library
 
-[Tailwind](https://tailwindcss.com/) is used for styling and [shadcn-svelte](https://www.shadcn-svelte.com/docs) for the component library. Installed components can be found [here](src/lib/components/ui/).
+[Tailwind](https://tailwindcss.com/) is used for styling and [shadcn-svelte](https://www.shadcn-svelte.com/docs) for the
+component library. Installed components can be found [here](src/lib/components/ui/).
 
 ## Issue tracking
 

@@ -43,7 +43,9 @@ const config = {
 	],
 	extensions: ['.svelte', '.md'],
 	vitePlugin: {
-		inspector: true
+		inspector: {
+			toggleKeyCombo: 'control-alt-shift-meta-s'
+		}
 	}
 };
 
