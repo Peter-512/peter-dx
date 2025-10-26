@@ -3,7 +3,7 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import HoverCard from '../HoverCard.svelte';
 	import { format } from 'date-fns';
-	import { GithubLogo } from 'radix-icons-svelte';
+	import { Github } from '@lucide/svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { getProjects } from './projects.remote';
 
@@ -15,8 +15,8 @@
 		<Card.Header>
 			<div class='flex justify-between'>
 				<Card.Title class='flex gap-2'>
-					<Button variant='link' class='px-0' href={link}>
-						<GithubLogo size={24} tabindex='-1' />
+					<Button variant='link' class='p-0' href={link}>
+						<Github class='size-6' />
 					</Button>
 					<span class='self-center'>{name}</span>
 				</Card.Title>
